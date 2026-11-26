@@ -295,9 +295,74 @@ body:after {
   body:after { inset: 4px !important; }
 }
 
+
+/* Warm walnut writing desk: a distinct layer between the rug and the objects. */
+.stage{isolation:isolate;}
+.desk{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.desk-top{
+  position:absolute;left:50%;top:39%;width:min(900px,calc(100vw - 24px));height:225px;
+  transform:translateX(-50%) perspective(1000px) rotateX(8deg);transform-origin:center bottom;
+  clip-path:polygon(7% 0,93% 0,100% 72%,0 72%);
+  border:2px solid #59371f;border-radius:12px 12px 3px 3px;
+  background:
+    linear-gradient(180deg,rgba(255,225,174,.34),transparent 18%,rgba(42,21,10,.13) 100%),
+    repeating-linear-gradient(1deg,rgba(65,34,17,.12) 0 1px,transparent 1px 8px),
+    repeating-linear-gradient(90deg,#9a6339 0 16px,#a66f42 16px 22px,#88532f 22px 35px,#ad7547 35px 41px,#925a33 41px 58px);
+  box-shadow:inset 0 2px 3px #f4d6a277,inset 0 -10px 20px #3d241555,0 18px 24px #2b160e66;
+}
+.desk-top:before{content:"";position:absolute;inset:9px 3.5% 31%;border:1px solid rgba(239,199,143,.45);border-radius:4px;box-shadow:inset 0 1px 4px #fff2;}
+.desk-top:after{content:"";position:absolute;left:0;right:0;bottom:26%;height:7px;background:linear-gradient(180deg,#dfb17b,#744527 55%,#4c2c1c);box-shadow:0 3px 5px #28160d88;}
+.desk-front{
+  position:absolute;left:50%;top:64%;width:min(820px,calc(100vw - 42px));height:104px;z-index:2;
+  transform:translateX(-50%);border:2px solid #55331e;border-top:3px solid #d0a06c;border-radius:3px 3px 10px 10px;
+  background:linear-gradient(90deg,#633b24 0%,#9a6036 12%,#86502d 50%,#a36a3f 88%,#5f3822 100%);
+  box-shadow:inset 0 3px 5px #f0c28a66,inset 0 -8px 12px #3b2116a8,0 13px 17px #2f1b1266;
+}
+.desk-front:before{content:"";position:absolute;inset:7px 9px;border:1px solid rgba(231,185,128,.55);border-radius:2px;pointer-events:none;}
+.desk-drawer{
+  position:absolute;top:15px;height:70px;width:29%;border:1px solid #55331f;border-radius:3px;
+  background:linear-gradient(180deg,rgba(230,187,132,.18),transparent 14%,rgba(41,22,13,.22) 100%),
+    repeating-linear-gradient(0deg,rgba(54,27,14,.1) 0 1px,transparent 1px 7px),
+    linear-gradient(100deg,#79482a,#a36a3e 42%,#88512f 72%,#6d3e25);
+  box-shadow:inset 0 0 0 3px rgba(57,31,18,.35),inset 0 1px 2px #f3c88d88,0 2px 4px #3e241855;
+}
+.drawer-left{left:2.5%;}.drawer-middle{left:35.5%;}.drawer-right{right:2.5%;}
+.desk-drawer:before{content:"";position:absolute;inset:5px;border:1px solid rgba(223,176,118,.5);border-radius:2px;}
+.drawer-pull{position:absolute;left:50%;top:50%;width:30px;height:10px;transform:translate(-50%,-50%);border:2px solid #d9b77b;border-radius:2px 2px 8px 8px;background:linear-gradient(180deg,#edcf91,#91602f);box-shadow:0 2px 3px #3a2115, inset 0 1px 1px #fff8;}
+.drawer-pull:before,.drawer-pull:after{content:"";position:absolute;top:-4px;width:5px;height:5px;border-radius:50%;background:#e4c58b;border:1px solid #805329;}
+.drawer-pull:before{left:-4px;}.drawer-pull:after{right:-4px;}
+.desk-leg{position:absolute;top:84%;width:40px;height:100px;z-index:1;clip-path:polygon(5% 0,95% 0,84% 100%,16% 100%);background:linear-gradient(90deg,#4f2e1b,#9c6338 24%,#c18a52 48%,#754528 76%,#4b2a19);box-shadow:0 5px 9px #2c170f66;}
+.desk-leg:before{content:"";position:absolute;top:13px;left:3px;right:3px;height:6px;border-top:1px solid #e0b47d;border-bottom:2px solid #512e1c;}
+.desk-leg-left{left:12%;}.desk-leg-right{right:12%;}
+.book{z-index:4;top:-16px;}
+.candle{z-index:4;right:2% !important;bottom:20% !important;}
+@media(max-width:700px){
+  .desk-top{width:calc(100vw - 10px);height:190px;top:43%;}
+  .desk-front{width:calc(100vw - 24px);top:66%;height:86px;}
+  .desk-drawer{top:12px;height:58px;width:29.5%;}
+  .desk-leg{top:84%;height:76px;width:30px;}
+  .book{top:-10px;}
+  .candle{right:-1% !important;bottom:20% !important;transform:scale(.76) !important;}
+}
+@media(max-width:390px){
+  .desk-top{top:44%;height:170px;}
+  .desk-front{top:67%;height:76px;}
+  .desk-drawer{height:49px;}
+  .desk-leg{height:60px;}
+  .candle{right:-4% !important;bottom:20% !important;transform:scale(.66) !important;}
+}
+
 </style></head>
 <body><main class="wrap"><header class="top"><div class="brand">Bir an · Bir soru · Bir cevap</div><button class="iconbtn" id="info" aria-label="Bilgi">i</button></header><section class="heading"><h1>Cevaplar Kitabı</h1><p>Aradığın şey, belki de bir sayfada saklı.</p></section>
-<div class="stage"><div class="candle" id="candle"><div class="glow"></div><div class="flame"><i></i></div><div class="wick"></div><div class="wax"><span class="drip"></span><span class="drip d2"></span></div><div class="candle-base"><span class="holder-neck"></span><span class="holder-foot"></span><span class="holder-rim"></span></div></div><div class="book" id="book"><div class="cover" id="cover" role="button" tabindex="0" aria-label="Cevaplar Kitabı. Açmak için kapağa iki kez dokun"><div class="cover-content"><div class="cover-title">CEVAPLAR<br>KİTABI</div><div class="cover-hint">Kapağa iki kez dokun</div></div></div><div class="page" id="page"><div class="mini">Kitabın cevabı</div><div class="answer" id="answer">...</div><div class="answer-mark" id="answer-mark"><svg viewBox="0 0 140 60" width="140" aria-hidden="true"><path d="M70 5 L78 24 L98 30 L78 36 L70 55 L62 36 L42 30 L62 24Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="70" cy="30" r="22" fill="none" stroke="currentColor" stroke-dasharray="2 4"/><path d="M18 30h18M104 30h18M70 0v8M70 52v8" stroke="currentColor"/></svg></div><div class="note" id="note"></div><div class="page-art" id="page-art" aria-hidden="true"></div><div class="secret-wrap locked" id="secret-wrap"><div class="secret-text" id="secret-text">Bu yolun ardında, ilk cevabın tamamlayıcısı olan ikinci bir düşünce saklı: kendine izin verdiğin ölçüde kapılar açılır; acele etmeden, kendi seçiminle.</div><button class="plus-btn premium-pencil" id="plus-btn" type="button" aria-label="Premium satır önizlemesini aç" title="Premium satır önizlemesini aç"><span class="pencil-tip" aria-hidden="true"></span><span class="pencil-body" aria-hidden="true"></span><span class="pencil-ferrule" aria-hidden="true"></span><span class="pencil-eraser" aria-hidden="true"></span><span class="sr-only">Premium satır önizlemesini aç</span></button><div class="plus-note" id="plus-note">Gri kaleme dokun · Premium satır önizlemesi</div></div><div class="pageno" id="pageno">— 001 —</div></div></div></div>
+<div class="stage"><div class="desk" aria-hidden="true">
+  <div class="desk-leg desk-leg-left"></div><div class="desk-leg desk-leg-right"></div>
+  <div class="desk-front">
+    <div class="desk-drawer drawer-left"><span class="drawer-pull"></span></div>
+    <div class="desk-drawer drawer-middle"><span class="drawer-pull"></span></div>
+    <div class="desk-drawer drawer-right"><span class="drawer-pull"></span></div>
+  </div>
+  <div class="desk-top"></div>
+</div><div class="candle" id="candle"><div class="glow"></div><div class="flame"><i></i></div><div class="wick"></div><div class="wax"><span class="drip"></span><span class="drip d2"></span></div><div class="candle-base"><span class="holder-neck"></span><span class="holder-foot"></span><span class="holder-rim"></span></div></div><div class="book" id="book"><div class="cover" id="cover" role="button" tabindex="0" aria-label="Cevaplar Kitabı. Açmak için kapağa iki kez dokun"><div class="cover-content"><div class="cover-title">CEVAPLAR<br>KİTABI</div><div class="cover-hint">Kapağa iki kez dokun</div></div></div><div class="page" id="page"><div class="mini">Kitabın cevabı</div><div class="answer" id="answer">...</div><div class="answer-mark" id="answer-mark"><svg viewBox="0 0 140 60" width="140" aria-hidden="true"><path d="M70 5 L78 24 L98 30 L78 36 L70 55 L62 36 L42 30 L62 24Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="70" cy="30" r="22" fill="none" stroke="currentColor" stroke-dasharray="2 4"/><path d="M18 30h18M104 30h18M70 0v8M70 52v8" stroke="currentColor"/></svg></div><div class="note" id="note"></div><div class="page-art" id="page-art" aria-hidden="true"></div><div class="secret-wrap locked" id="secret-wrap"><div class="secret-text" id="secret-text">Bu yolun ardında, ilk cevabın tamamlayıcısı olan ikinci bir düşünce saklı: kendine izin verdiğin ölçüde kapılar açılır; acele etmeden, kendi seçiminle.</div><button class="plus-btn premium-pencil" id="plus-btn" type="button" aria-label="Premium satır önizlemesini aç" title="Premium satır önizlemesini aç"><span class="pencil-tip" aria-hidden="true"></span><span class="pencil-body" aria-hidden="true"></span><span class="pencil-ferrule" aria-hidden="true"></span><span class="pencil-eraser" aria-hidden="true"></span><span class="sr-only">Premium satır önizlemesini aç</span></button><div class="plus-note" id="plus-note">Gri kaleme dokun · Premium satır önizlemesi</div></div><div class="pageno" id="pageno">— 001 —</div></div></div></div>
 <div class="hintline" id="hint">Bir soru düşün. Yazmana, anlatmana gerek yok.<br>Hazır olduğunda kapağa iki kez dokun.</div><div class="actions" id="actions" style="display:none"><button class="action primary" id="again">Yeni bir cevap</button><button class="action" id="close">Kitabı kapat</button><button class="action" id="share">Cevabı paylaş</button></div><footer class="footer">HER CEVAP, YENİ BİR İHTİMAL.</footer></main>
 <div class="overlay" id="overlay"><div class="modal"><h2>Bu kitap nasıl çalışır?</h2><p>Zihninde bir soru tut. Cevabını ararken kapağa iki kez hızlıca dokun. Kitap, içinden rastgele bir cümle seçerek sana bir cevap sunacak.</p><p>Bu, eğlence ve düşünme amacıyla hazırlanmış küçük bir ritüel. Cevapları kesin gerçekler ya da hayat kararları için rehber olarak görme.</p><button class="action primary" id="ok">Anladım</button></div></div><div class="toast" id="toast">Kopyalandı</div>
 <script>
