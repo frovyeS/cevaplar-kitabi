@@ -447,16 +447,81 @@ body:after {
 .heading { margin: 12px 0 8px !important; }
 .heading h1 { display: none !important; }
 
-</style></head>
+</style>
+<style id="layout-fix-v2">
+/* Scene rebalanced: compact flat tabletop, book + candle both on top, rug remains visible */
+.stage{
+  width:min(100%,760px) !important;
+  height:min(64vh,560px) !important;
+  min-height:390px !important;
+  position:relative !important;
+  isolation:isolate !important;
+  z-index:2 !important;
+}
+.desk{
+  width:min(84vw,980px) !important;
+  height:min(57vh,500px) !important;
+  top:52% !important;
+  left:50% !important;
+  z-index:0 !important;
+  transform:translate(-50%,-50%) !important;
+}
+.desk-top{
+  background:
+    linear-gradient(180deg,rgba(255,229,187,.09),rgba(70,35,17,.08)),
+    url("assets/ceviz-masa.webp") center / cover no-repeat !important;
+  border:2px solid #4f2d19 !important;
+  border-radius:16px !important;
+  box-shadow:0 14px 35px #2c160f38,inset 0 0 0 5px #9c6c3f,inset 0 0 0 8px #e2b983,inset 0 0 0 10px #714525 !important;
+}
+.desk-top::before{inset:16px !important;border:1px solid #d6ad7a90 !important;border-radius:8px !important}
+.desk-top::after{inset:25px !important;border:1px solid #6a422866 !important;background:none !important}
+.desk-drawers{display:none !important}
+.book{z-index:4 !important;position:relative !important}
+.candle{
+  z-index:5 !important;
+  right:2% !important;
+  bottom:8% !important;
+  transform:scale(.9) !important;
+  filter:drop-shadow(0 9px 11px #33201255) !important;
+}
+.secret-wrap{margin-top:14px !important;min-height:72px !important}
+.dust-trigger{
+  left:50% !important;top:66% !important;
+  width:164px !important;height:72px !important;
+  z-index:7 !important;
+  opacity:1 !important;
+  filter:drop-shadow(0 5px 5px #80684a44) !important;
+}
+.dust-mound{
+  left:17px !important;right:17px !important;bottom:10px !important;height:31px !important;
+  border-radius:48% 54% 42% 42% !important;
+  background:
+    radial-gradient(ellipse at 50% 24%,#e8dfd0 0 12%,#c9b99d 26%,#b2a083 46%,#8c7a60 64%,transparent 76%) !important;
+  box-shadow:0 4px 8px #725a3c2a,inset 0 3px 4px #fff9 !important;
+}
+.dust-mound::before{left:-7px !important;bottom:6px !important;width:40px !important;height:20px !important}
+.dust-mound::after{right:-7px !important;bottom:5px !important;width:42px !important;height:19px !important}
+.dust-grain{width:4px !important;height:4px !important;background:#a28d6e !important;box-shadow:0 0 2px #fff9, 12px 8px #c4b397, -15px 13px #9d896b, 23px -6px #d2c3a8, -24px -8px #b09b7e, 30px 17px #a18d71 !important}
+.dust-grain.g1{left:34px !important;top:14px !important}
+.dust-grain.g2{left:60px !important;top:5px !important}
+.dust-grain.g3{right:40px !important;top:12px !important}
+.dust-grain.g4{right:61px !important;top:4px !important}
+.plus-note{font-size:10px !important;margin-top:3px !important;color:#8a704e !important}
+@media(max-width:700px){
+ .stage{width:100% !important;height:min(60vh,510px) !important;min-height:350px !important}
+ .desk{width:94vw !important;height:47vh !important;top:51% !important}
+ .book{width:min(76vw,350px) !important;height:min(49vh,410px) !important;min-height:320px !important}
+ .candle{right:-1% !important;bottom:7% !important;transform:scale(.72) !important}
+ .dust-trigger{width:140px !important;height:66px !important;top:65% !important}
+}
+</style>
+
+</head>
 <body><main class="wrap"><header class="top"><div class="brand">Bir an · Bir soru · Bir cevap</div><button class="iconbtn" id="info" aria-label="Bilgi">i</button></header><section class="heading"><p>Aradığın şey, belki de bir sayfada saklı.</p></section>
 <div class="stage"><div class="desk" aria-hidden="true">
   <div class="desk-top">
-    <div class="desk-drawers">
-      <span class="desk-drawer"><i class="drawer-pull"></i></span>
-      <span class="desk-drawer"><i class="drawer-pull"></i></span>
-      <span class="desk-drawer"><i class="drawer-pull"></i></span>
-    </div>
-  </div>
+</div>
 </div><div class="candle" id="candle"><div class="glow"></div><div class="flame"><i></i></div><div class="wick"></div><div class="wax"><span class="drip"></span><span class="drip d2"></span></div><div class="candle-base"><span class="holder-neck"></span><span class="holder-foot"></span><span class="holder-rim"></span></div></div><div class="book" id="book"><div class="cover" id="cover" role="button" tabindex="0" aria-label="Cevaplar Kitabı. Açmak için kapağa iki kez dokun"><div class="cover-content"><div class="cover-title">CEVAPLAR<br>KİTABI</div><div class="cover-hint">Kapağa iki kez dokun</div></div></div><div class="page" id="page"><div class="mini">Kitabın cevabı</div><div class="answer" id="answer">...</div><div class="answer-mark" id="answer-mark"><svg viewBox="0 0 140 60" width="140" aria-hidden="true"><path d="M70 5 L78 24 L98 30 L78 36 L70 55 L62 36 L42 30 L62 24Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="70" cy="30" r="22" fill="none" stroke="currentColor" stroke-dasharray="2 4"/><path d="M18 30h18M104 30h18M70 0v8M70 52v8" stroke="currentColor"/></svg></div><div class="note" id="note"></div><div class="page-art" id="page-art" aria-hidden="true"></div><div class="secret-wrap locked" id="secret-wrap"><div class="secret-text" id="secret-text">Bu satır, henüz kendine söylemediğin bir ihtimali fark etmen için burada.</div><div class="wind-gust" aria-hidden="true"></div><button class="plus-btn dust-trigger" id="plus-btn" type="button" aria-label="Tozu rüzgârla dağıt ve gizli satırı aç" title="Tozu rüzgârla dağıt"><span class="dust-mound" aria-hidden="true"></span><i class="dust-grain g1" aria-hidden="true"></i><i class="dust-grain g2" aria-hidden="true"></i><i class="dust-grain g3" aria-hidden="true"></i><i class="dust-grain g4" aria-hidden="true"></i><span class="sr-only">Tozu rüzgârla dağıt ve gizli satırı aç</span></button><div class="plus-note" id="plus-note">Toza dokun · Rüzgâr gizli satırı açsın</div></div><div class="pageno" id="pageno">— 001 —</div></div></div></div>
 <div class="hintline" id="hint">Bir soru düşün. Yazmana, anlatmana gerek yok.<br>Hazır olduğunda kapağa iki kez dokun.</div><div class="actions" id="actions" style="display:none"><button class="action primary" id="again">Yeni bir cevap</button><button class="action" id="close">Kitabı kapat</button><button class="action" id="share">Cevabı paylaş</button></div><footer class="footer">HER CEVAP, YENİ BİR İHTİMAL.</footer></main>
 <div class="overlay" id="overlay"><div class="modal"><h2>Bu kitap nasıl çalışır?</h2><p>Zihninde bir soru tut. Cevabını ararken kapağa iki kez hızlıca dokun. Kitap, içinden rastgele bir cümle seçerek sana bir cevap sunacak.</p><p>Ücretsiz kullanımda en fazla 5 kitap açılışı yapılabilir. Beşinci açılıştan sonra 24 saatlik bekleme süresi başlar. Plus üyeler bu sınıra tabi değildir.</p><p>Bu, eğlence ve düşünme amacıyla hazırlanmış küçük bir ritüel. Cevapları kesin gerçekler ya da hayat kararları için rehber olarak görme.</p><button class="action primary" id="ok">Anladım</button></div></div><div class="toast" id="toast">Kopyalandı</div>
