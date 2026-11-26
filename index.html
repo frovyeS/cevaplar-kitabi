@@ -117,32 +117,41 @@ body:after{
 .glow{left:-78px;top:-57px;width:225px;height:235px;background:radial-gradient(ellipse,rgba(255,188,91,.22),rgba(226,132,42,.13) 34%,transparent 73%);filter:blur(2px)}
 .candle:after{left:-62px;top:-38px;width:190px;height:220px;background:radial-gradient(ellipse,rgba(255,183,79,.13),transparent 72%)}
 
-/* The old grey strip is now an actual graphite pencil; tap to reveal the preview */
-.secret-wrap{max-width:320px;margin:10px auto 0;padding:0 4px;color:#594632;font:italic 14px/1.5 var(--serif);min-height:86px}
-.secret-text{transition:filter .45s,opacity .45s;position:relative;z-index:1}
-.secret-wrap.locked .secret-text{filter:blur(4.7px);opacity:.52}
+/* Toz katmanı: dokununca rüzgâr tozu savurur ve alttaki satırı açığa çıkarır. */
+.secret-wrap{position:relative;max-width:330px;margin:10px auto 0;padding:0 4px;color:#594632;font:italic 14px/1.5 var(--serif);min-height:94px;isolation:isolate}
+.secret-text{position:relative;z-index:1;transition:filter .7s ease,opacity .7s ease,transform .7s ease;}
+.secret-wrap.locked .secret-text{filter:blur(6px);opacity:.25;transform:scale(.985)}
+.secret-wrap.unlocked .secret-text{filter:none;opacity:1;transform:scale(1)}
 .secret-wrap .marker{display:none}
-.premium-pencil{
-  position:absolute;z-index:4;left:50%;top:42%;
-  display:block;width:178px;height:29px;margin:0;padding:0;
-  border:0;border-radius:0;background:transparent;
-  transform:translate(-50%,-50%) rotate(-3.5deg);
-  cursor:pointer;filter:drop-shadow(0 3px 3px rgba(48,39,29,.35));
-  transition:transform .25s,filter .25s,opacity .35s;
-  font-size:0;color:transparent;overflow:visible;
-}
-.premium-pencil:hover{transform:translate(-50%,-54%) rotate(-2deg);filter:drop-shadow(0 5px 5px rgba(48,39,29,.42))}
-.premium-pencil:focus-visible{outline:2px solid #9d7848;outline-offset:5px;border-radius:4px}
-.pencil-body{position:absolute;left:16px;right:24px;top:8px;height:13px;border-radius:2px;background:linear-gradient(180deg,#f1f1ee 0%,#c9ccca 19%,#85898b 46%,#c9ccca 68%,#74787b 100%);box-shadow:inset 0 1px 1px #fff,inset 0 -1px 1px #4d5154,0 1px 1px #4e4d49}
-.pencil-body:after{content:"";position:absolute;left:8px;right:7px;top:3px;height:1px;background:rgba(255,255,255,.52);box-shadow:0 4px 0 rgba(35,39,41,.18)}
-.pencil-tip{position:absolute;left:1px;top:8px;width:17px;height:13px;clip-path:polygon(100% 0,100% 100%,0 50%);background:linear-gradient(180deg,#d2c3a7 0 48%,#9b876a 50% 100%)}
-.pencil-tip:after{content:"";position:absolute;left:0;top:5px;width:5px;height:3px;background:#3d3934;clip-path:polygon(100% 0,100% 100%,0 50%)}
-.pencil-ferrule{position:absolute;right:15px;top:8px;width:11px;height:13px;background:repeating-linear-gradient(90deg,#6d7072 0 2px,#d7d9d8 2px 4px);border-left:1px solid #65696b;border-right:1px solid #55595b}
-.pencil-eraser{position:absolute;right:2px;top:8px;width:15px;height:13px;border-radius:2px 5px 5px 2px;background:linear-gradient(180deg,#c9c4bd,#92918f 55%,#6f7172);box-shadow:inset 0 1px 1px #fff8,0 1px 1px #555}
-.secret-wrap.unlocked .premium-pencil{opacity:0;pointer-events:none;transform:translate(-50%,-50%) rotate(4deg) scale(.75)}
-.secret-wrap.unlocked .secret-text{filter:none;opacity:1}
+.dust-trigger{position:absolute;z-index:5;left:50%;top:56%;width:92px;height:30px;margin:0;padding:0;border:0;background:transparent;transform:translate(-50%,-50%);cursor:pointer;transition:opacity .45s,transform .35s;filter:drop-shadow(0 2px 2px #5e4b3326)}
+.dust-trigger:hover{transform:translate(-50%,-54%);filter:drop-shadow(0 4px 4px #5e4b3340)}
+.dust-trigger:focus-visible{outline:2px solid #9d7848;outline-offset:5px;border-radius:50%}
+.dust-mound{position:absolute;left:16px;right:16px;bottom:5px;height:13px;border-radius:50% 50% 45% 45%;background:radial-gradient(ellipse at 50% 80%,#806d55 0 10%,#a9977b 28%,#c8b99e 56%,#e0d3bb 75%,transparent 100%);box-shadow:0 2px 3px #59452c35,inset 0 1px 1px #fff8}
+.dust-mound:before,.dust-mound:after{content:"";position:absolute;bottom:5px;width:22px;height:9px;border-radius:50%;background:radial-gradient(ellipse,#b3a184 0 35%,#d4c6aa 65%,transparent 100%)}
+.dust-mound:before{left:-5px;transform:rotate(-12deg)}.dust-mound:after{right:-5px;transform:rotate(12deg)}
+.dust-grain{position:absolute;display:block;width:3px;height:3px;border-radius:50%;background:#9b896d;box-shadow:0 0 2px #fff8}
+.dust-grain.g1{left:23px;top:5px}.dust-grain.g2{left:41px;top:1px;width:2px;height:2px}.dust-grain.g3{right:22px;top:7px;width:2px;height:2px}.dust-grain.g4{right:34px;top:2px}
+.secret-wrap.unlocked .dust-trigger{opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.45)}
 .plus-btn{font-size:0;color:transparent}
-.plus-note{position:relative;z-index:2;margin-top:5px;font:9px/1.45 var(--sans);letter-spacing:.06em;color:#8c734f}
+.plus-note{position:relative;z-index:2;margin-top:6px;font:9px/1.45 var(--sans);letter-spacing:.05em;color:#8c734f;transition:opacity .3s}
+.wind-gust{position:absolute;z-index:4;left:-20px;right:-20px;top:48%;height:30px;opacity:0;pointer-events:none;transform:translateX(-35px)}
+.wind-gust:before,.wind-gust:after{content:"";position:absolute;left:0;right:0;height:1px;border-radius:50%;background:linear-gradient(90deg,transparent,#fff9e9c9 18%,#fff9e9b0 58%,transparent);box-shadow:0 5px 0 rgba(255,249,233,.38)}
+.wind-gust:after{top:12px;left:18px;right:15px;opacity:.7;transform:skewY(-4deg)}
+.secret-wrap.wind-active .wind-gust{animation:windSweep .9s cubic-bezier(.16,.7,.25,1) forwards}
+.secret-wrap.wind-active .dust-grain{animation:dustFly .8s ease-out forwards}
+.secret-wrap.wind-active .g1{--dx:45px;--dy:-22px}.secret-wrap.wind-active .g2{--dx:64px;--dy:-7px}.secret-wrap.wind-active .g3{--dx:52px;--dy:18px}.secret-wrap.wind-active .g4{--dx:75px;--dy:-16px}
+@keyframes windSweep{0%{opacity:0;transform:translateX(-40px) scaleX(.6)}22%{opacity:1}100%{opacity:0;transform:translateX(130px) scaleX(1.25)}}
+@keyframes dustFly{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx,55px),var(--dy,-10px)) scale(.35)}}
+/* Rüzgâr alevi yana yatırır; ışık kısa süre dalgalanır ama alev sönmez. */
+.candle.gust .flame{animation:flameGust .95s ease-in-out,flameDance 1.7s ease-in-out 1s infinite alternate;transform-origin:bottom center}
+.candle.gust .glow{animation:gustGlow .95s ease-in-out,glowPulse 2.8s ease-in-out 1s infinite alternate}
+.candle.gust:after{animation:gustLight .95s ease-in-out,lightWaver 3s 1s infinite alternate}
+@keyframes flameGust{0%{transform:rotate(45deg) scale(1,1)}18%{transform:rotate(83deg) skewX(12deg) scale(.78,.88)}43%{transform:rotate(70deg) skewX(7deg) scale(.84,1.02)}72%{transform:rotate(34deg) scale(1.07,.96)}100%{transform:rotate(45deg) scale(1,1)}}
+@keyframes gustGlow{0%,100%{opacity:1;transform:translateX(0)}35%{opacity:.55;transform:translateX(10px) scale(.92)}70%{opacity:.9;transform:translateX(-3px)}}
+@keyframes gustLight{0%,100%{opacity:1;transform:translate(0,0)}35%{opacity:.48;transform:translate(8px,-2px)}72%{opacity:.92;transform:translate(-2px,0)}}
+.action:disabled{opacity:.42;filter:grayscale(.7);cursor:not-allowed;transform:none!important;box-shadow:none}
+.quota-lock{color:#785c3b;font-weight:600}
+@media(prefers-reduced-motion:reduce){.secret-wrap.wind-active .wind-gust,.secret-wrap.wind-active .dust-grain,.candle.gust .flame,.candle.gust .glow,.candle.gust:after{animation-duration:.01ms!important}}
 .action{font-family:var(--engraved);font-size:10px;letter-spacing:.07em;padding:12px 18px;border:1px solid rgba(199,163,105,.72);background:linear-gradient(180deg,#28201b,#171310);color:#ead9b9;box-shadow:0 5px 14px #0005,inset 0 1px 0 #ffffff12}
 .action:hover{background:linear-gradient(180deg,#443323,#241a13);border-color:#e0bd82;color:#fff0d0;transform:translateY(-1px)}
 .action.primary{background:linear-gradient(135deg,#e0c18a,#b88e55 54%,#987044);border-color:#e0c18a;color:#21170e;box-shadow:0 5px 16px #0006,inset 0 1px 0 #fff8,inset 0 -2px 0 #76532f55}
@@ -362,21 +371,27 @@ body:after {
     <div class="desk-drawer drawer-right"><span class="drawer-pull"></span></div>
   </div>
   <div class="desk-top"></div>
-</div><div class="candle" id="candle"><div class="glow"></div><div class="flame"><i></i></div><div class="wick"></div><div class="wax"><span class="drip"></span><span class="drip d2"></span></div><div class="candle-base"><span class="holder-neck"></span><span class="holder-foot"></span><span class="holder-rim"></span></div></div><div class="book" id="book"><div class="cover" id="cover" role="button" tabindex="0" aria-label="Cevaplar Kitabı. Açmak için kapağa iki kez dokun"><div class="cover-content"><div class="cover-title">CEVAPLAR<br>KİTABI</div><div class="cover-hint">Kapağa iki kez dokun</div></div></div><div class="page" id="page"><div class="mini">Kitabın cevabı</div><div class="answer" id="answer">...</div><div class="answer-mark" id="answer-mark"><svg viewBox="0 0 140 60" width="140" aria-hidden="true"><path d="M70 5 L78 24 L98 30 L78 36 L70 55 L62 36 L42 30 L62 24Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="70" cy="30" r="22" fill="none" stroke="currentColor" stroke-dasharray="2 4"/><path d="M18 30h18M104 30h18M70 0v8M70 52v8" stroke="currentColor"/></svg></div><div class="note" id="note"></div><div class="page-art" id="page-art" aria-hidden="true"></div><div class="secret-wrap locked" id="secret-wrap"><div class="secret-text" id="secret-text">Bu yolun ardında, ilk cevabın tamamlayıcısı olan ikinci bir düşünce saklı: kendine izin verdiğin ölçüde kapılar açılır; acele etmeden, kendi seçiminle.</div><button class="plus-btn premium-pencil" id="plus-btn" type="button" aria-label="Premium satır önizlemesini aç" title="Premium satır önizlemesini aç"><span class="pencil-tip" aria-hidden="true"></span><span class="pencil-body" aria-hidden="true"></span><span class="pencil-ferrule" aria-hidden="true"></span><span class="pencil-eraser" aria-hidden="true"></span><span class="sr-only">Premium satır önizlemesini aç</span></button><div class="plus-note" id="plus-note">Gri kaleme dokun · Premium satır önizlemesi</div></div><div class="pageno" id="pageno">— 001 —</div></div></div></div>
+</div><div class="candle" id="candle"><div class="glow"></div><div class="flame"><i></i></div><div class="wick"></div><div class="wax"><span class="drip"></span><span class="drip d2"></span></div><div class="candle-base"><span class="holder-neck"></span><span class="holder-foot"></span><span class="holder-rim"></span></div></div><div class="book" id="book"><div class="cover" id="cover" role="button" tabindex="0" aria-label="Cevaplar Kitabı. Açmak için kapağa iki kez dokun"><div class="cover-content"><div class="cover-title">CEVAPLAR<br>KİTABI</div><div class="cover-hint">Kapağa iki kez dokun</div></div></div><div class="page" id="page"><div class="mini">Kitabın cevabı</div><div class="answer" id="answer">...</div><div class="answer-mark" id="answer-mark"><svg viewBox="0 0 140 60" width="140" aria-hidden="true"><path d="M70 5 L78 24 L98 30 L78 36 L70 55 L62 36 L42 30 L62 24Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="70" cy="30" r="22" fill="none" stroke="currentColor" stroke-dasharray="2 4"/><path d="M18 30h18M104 30h18M70 0v8M70 52v8" stroke="currentColor"/></svg></div><div class="note" id="note"></div><div class="page-art" id="page-art" aria-hidden="true"></div><div class="secret-wrap locked" id="secret-wrap"><div class="secret-text" id="secret-text">Bu satır, henüz kendine söylemediğin bir ihtimali fark etmen için burada.</div><div class="wind-gust" aria-hidden="true"></div><button class="plus-btn dust-trigger" id="plus-btn" type="button" aria-label="Tozu rüzgârla dağıt ve gizli satırı aç" title="Tozu rüzgârla dağıt"><span class="dust-mound" aria-hidden="true"></span><i class="dust-grain g1" aria-hidden="true"></i><i class="dust-grain g2" aria-hidden="true"></i><i class="dust-grain g3" aria-hidden="true"></i><i class="dust-grain g4" aria-hidden="true"></i><span class="sr-only">Tozu rüzgârla dağıt ve gizli satırı aç</span></button><div class="plus-note" id="plus-note">Toza dokun · Rüzgâr gizli satırı açsın</div></div><div class="pageno" id="pageno">— 001 —</div></div></div></div>
 <div class="hintline" id="hint">Bir soru düşün. Yazmana, anlatmana gerek yok.<br>Hazır olduğunda kapağa iki kez dokun.</div><div class="actions" id="actions" style="display:none"><button class="action primary" id="again">Yeni bir cevap</button><button class="action" id="close">Kitabı kapat</button><button class="action" id="share">Cevabı paylaş</button></div><footer class="footer">HER CEVAP, YENİ BİR İHTİMAL.</footer></main>
-<div class="overlay" id="overlay"><div class="modal"><h2>Bu kitap nasıl çalışır?</h2><p>Zihninde bir soru tut. Cevabını ararken kapağa iki kez hızlıca dokun. Kitap, içinden rastgele bir cümle seçerek sana bir cevap sunacak.</p><p>Bu, eğlence ve düşünme amacıyla hazırlanmış küçük bir ritüel. Cevapları kesin gerçekler ya da hayat kararları için rehber olarak görme.</p><button class="action primary" id="ok">Anladım</button></div></div><div class="toast" id="toast">Kopyalandı</div>
+<div class="overlay" id="overlay"><div class="modal"><h2>Bu kitap nasıl çalışır?</h2><p>Zihninde bir soru tut. Cevabını ararken kapağa iki kez hızlıca dokun. Kitap, içinden rastgele bir cümle seçerek sana bir cevap sunacak.</p><p>Ücretsiz kullanımda en fazla 5 kitap açılışı yapılabilir. Beşinci açılıştan sonra 24 saatlik bekleme süresi başlar. Plus üyeler bu sınıra tabi değildir.</p><p>Bu, eğlence ve düşünme amacıyla hazırlanmış küçük bir ritüel. Cevapları kesin gerçekler ya da hayat kararları için rehber olarak görme.</p><button class="action primary" id="ok">Anladım</button></div></div><div class="toast" id="toast">Kopyalandı</div>
 <script>
 const answers=[
 ['Evet.','Bazen ilk his, bütün uzun açıklamalardan daha dürüsttür.'],['Hayır.','Bu kapıyı kapatmak, başka bir kapıyı açabilir.'],['Henüz değil.','Biraz daha sabır. Zamanı geldiğinde taşlar yerine oturacak.'],['Beklediğin şey yaklaşıyor.','Ama onu fark etmek için gözlerini açık tut.'],['Bırak gitsin.','Her şeyi yanında taşımak zorunda değilsin.'],['Bir adım at.','Mükemmel anı beklemek, bazen hiç başlamamaktır.'],['Şimdi değil.','Bugün dinlen. Yarın yeniden bakabilirsin.'],['İçindeki sesi dinle.','Gürültü azaldığında cevabın şeklini göreceksin.'],['Risk almaya değer.','Ama cesaret, hazırlıksız olmak demek değildir.'],['Yolunu değiştir.','Hedefin aynı kalabilir; yolun değişebilir.'],['Sana düşündüğünden daha yakın.','Aradığın şey uzaklarda olmayabilir.'],['Bir işaret bekleme.','Belki de işaret, bu soruyu sormuş olmandır.'],['Güven, ama gözünü açık tut.','İyi niyet ile dikkat birbirine engel değildir.'],['Bunu zamana bırak.','Her cevap bugün gelmek zorunda değil.'],['Şansını dene.','Bu kez kendine izin ver.'],['Önce kendine sor.','Başkalarının sesi, kendi sesini bastırmasın.'],['Bir konuşma her şeyi değiştirebilir.','Söylemek istediğini sakin ve açık bir şekilde söyle.'],['Daha fazlasını bekleyebilirsin.','Küçük olanla yetinmek zorunda değilsin.'],['Şu an elindekine odaklan.','Bazen en önemli ipucu, gözünün önündedir.'],['Bu düşündüğün kadar karmaşık değil.','Bir sonraki küçük adımı bulman yeterli.'],['Daha iyi bir seçenek var.','Biraz araştır ve acele etme.'],['Kendine bir şans daha ver.','Geçmişteki sonuç, geleceğin garantisi değildir.'],['Bir süre uzaklaş.','Mesafe, bazı şeyleri daha net gösterir.'],['Cevap, sorunun içinde saklı.','Neyi gerçekten istediğini yeniden düşün.'],['Duygularını küçümseme.','Ama karar verirken onlara biraz alan tanı.'],['İşler düşündüğün yönde ilerleyebilir.','Küçük bir başlangıç yap.'],['Şaşırtıcı bir gelişme olabilir.','Beklenmedik ihtimallere açık kal.'],['Kendini seç.','Bu bencillik değil, bir sınır olabilir.'],['Biraz daha bekle.','Sessizlik de bir şeylerin olgunlaşmasına yardım eder.'],['İlk adımı sen at.','Karşılık almak için değil, içinden geldiği için.'],['Bunu geride bırakabilirsin.','Hatırlamak, yeniden yaşamak zorunda olmak değildir.'],['Daha fazla bilgiye ihtiyacın var.','Tahminle değil, netlikle ilerle.'],['Düşündüğünden farklı olacak.','Değişiklik kötü bir şey olmak zorunda değil.'],['İçgüdün doğru yere işaret ediyor.','Yine de gerçekleri kontrol et.'],['Küçük bir evet ile başla.','Büyük kararlar bazen küçük denemelerle netleşir.'],['Hayır demeyi dene.','Enerjin de zamanın da kıymetli.'],['Bir kapı kapanıyor.','Kapanışlar bazen başlangıçların sessiz hâlidir.'],['Henüz karar verme.','Bir gece daha düşün.'],['Bunu paylaş.','Bir başkasının bakış açısı sana iyi gelebilir.'],['Kendine karşı dürüst ol.','İstediğin şey ile alıştığın şey aynı olmayabilir.'],['Devam et.','Yavaşlamak, vazgeçmek değildir.'],['Bugünlük yeter.','Her şeyi aynı gün çözmek zorunda değilsin.'],['Yeni bir başlangıç mümkün.','Geçmiş, önündeki yolu tek başına belirlemez.'],['Bir sürprize hazır ol.','Planında küçük bir boşluk bırak.'],['Daha sade düşün.','Gereksiz yükleri çıkarınca fikir berraklaşır.'],['Bunu tek başına çözmek zorunda değilsin.','Destek istemek de bir güçtür.'],['Önce dinle.','Anlamak, hemen cevap vermekten daha değerli olabilir.'],['Bu fırsatı kaçırma.','İçinden gelen merakı takip et.'],['Yönünü koru.','Kısa süreli dikkat dağınıklıkları seni tanımlamaz.'],['Bir şeyleri yeniden düzenle.','Belki de sorun, yanlış sırada olmalarıdır.'],['Kendini şaşırt.','Alışık olduğun seçeneğin dışına çık.'],['Bu soruyu birkaç gün sonra tekrar sor.','Cevabın değişebilir; sen de değişiyorsun.'],['Önceliğin huzur olsun.','Her kazanım, uğruna yorulmaya değmez.'],['Güzel bir ihtimal var.','Onu mümkün kılacak şey, senin küçük hareketin.'],['Daha fazla zorlamayı bırak.','Akışına bırakmak da bazen bilinçli seçimdir.'],['Bir denge kur.','Ne tamamen vazgeç, ne de kendini tüket.'],['Şimdilik cevabın bu olsun: keşfet.','Henüz bilmemek, heyecan verici olabilir.'],['Biraz cesaret, biraz plan.','İkisi birlikte daha güçlü.'],['Kendine zaman tanı.','Hızın değil, yönün önemli.'],['Olabilir.','Ama bunun için senin de bir şey yapman gerekecek.'],['Bu hikâye henüz bitmedi.','Sonraki sayfayı henüz görmedin.'],['Bir şeyi kaybetmek, her şeyi kaybetmek değildir.','Yeni anlamlar zamanla oluşabilir.'],['Sana iyi geleni hatırla.','Onu hayatında biraz daha çoğalt.'],['Beklenmedik birinden yardım gelebilir.','İnsanlara kapını tamamen kapatma.'],['Biraz daha net ol.','Belirsizlik, açık bir konuşmayla azalabilir.'],['Kendi ritminde ilerle.','Başkasının takvimi senin ölçün değil.'],['Bu kez farklı dene.','Aynı yöntem, aynı sonucu verebilir.'],['Önce dinlen, sonra karar ver.','Yorgun zihin her şeyi daha ağır görebilir.'],['Dileğini küçültme.','Ama onu adımlara böl.'],['Bir ihtimal daha düşün.','Tek seçenek, tek gerçek değildir.'],['Bunu kutlamayı unutma.','Küçük ilerlemeler de ilerlemedir.'],['Sınırlarını koru.','Sevgi ve saygı birlikte var olabilir.'],['Cevap, düşündüğün kişinin değil; senin.','Kendi ihtiyaçlarını da hesaba kat.'],['Acele etmeden ilerle.','Telaş, sezgiyi susturabilir.'],['Bir fırsat yarat.','Beklemek yerine küçük bir alan aç.'],['Bugün merakını takip et.','Bilinmeyen, her zaman tehdit değildir.'],['Biraz daha umut.','Henüz görmediğin şeyler var.'],['Sana ait olmayan yükü bırak.','Herkesin sorumluluğu kendine.'],['Bu konuda fikrini değiştirebilirsin.','Kararlılık, gerektiğinde yeniden değerlendirmeyi dışlamaz.'],['Yolun açık.','Adımlarını dikkatle at.'],['Güzel şeyler de tesadüfen başlayabilir.','Başlangıç için büyük bir plan şart değil.'],['Daha iyi bir soru sor.','Bazen soruyu değiştirmek, cevabı değiştirir.'],['Şimdi harekete geç.','Bir dakikalık başlangıç bile başlangıçtır.'],['Önce kalbini rahatlat.','Kararı sonra da verebilirsin.'],['Bu kadarını bilmen yeterli.','Bir sonraki adımda yeni şeyler öğrenirsin.'],['Kendini affet.','Öğrenmek için kusursuz olman gerekmiyor.'],['Bu konuda yalnız değilsin.','Bir bağlantı kurmayı dene.'],['Biraz oyun, biraz ciddiyet.','Hayatın her anı sınav değil.'],['Fırsat, hazırlıkla buluşabilir.','Hazırlığını ihmal etme.'],['Kendine dön.','Dışarıdaki cevaplar içerideki soruyu değiştirmeyebilir.'],['Daha önce yaptığından fazlasını yapabilirsin.','Kendini eski sınırlarınla ölçme.'],['Şimdilik açık bırak.','Her hikâyeye hemen son yazılmaz.'],['Bir şey söyle.','Dürüstçe ve incitmeden.'],['Bir şey sorma; gözlemle.','Bazı cevaplar davranışlarda görünür.'],['Biraz hafiflik seç.','Ciddi olmak, ağır olmak demek değil.'],['Yeniden dene, ama aynı şekilde değil.','Deneyiminden bir şey değiştir.'],['Bunu unutma: seçim senin.','Cevap bir öneridir, karar değil.'],['Daha fazla zaman iste.','Netleşmek için alanın olabilir.'],['Bir an dur ve nefes al.','Şimdi, burada ol.'],['İhtimalini koru.','Ama gerçeği de görmezden gelme.'],['Bir sonraki sayfa daha aydınlık olabilir.','Onu çevirmek için hazır ol.'],['Görünenden fazlası var.','Yüzeyin altına bak.'],['Kendine inan, kanıtını da oluştur.','İnanç ve emek birbirini tamamlar.'],['Bir şeyi bitir.','Yarım kalanlar zihninde yer kaplıyor olabilir.'],['Daha yumuşak bir yol seç.','Kendine sert davranmadan da ilerleyebilirsin.'],['Bugün cevap arama; yaşa.','Bazen hayat, düşünmekten önce gelir.'],['Bu sorunun cevabı sende şekillenecek.','Kitap yalnızca bir aynadır.']
 ];
 answers.push(['Bir kapıyı aralamak için hazır ol.','İçeri girmek zorunda değilsin; önce bak.'],['Beklediğin haber gecikebilir.','Gecikme, olumsuzluk anlamına gelmez.'],['Biraz daha derin bak.','İlk izlenimin ardında başka bir hikâye olabilir.'],['Yol arkadaşını dikkatle seç.','Yol kadar yanında kim olduğu da önemlidir.'],['Bu fikri denemeye değer.','Küçük bir prototip, büyük bir hayalden daha öğretici olabilir.'],['Dengeyi yeniden bul.','Bir tarafı büyütürken diğerini ihmal etme.'],['Kendine küçük bir ödül ver.','Emek verdiğini fark etmek de ilerlemenin parçası.'],['Bir şey öğrenmeye başla.','Merakın seni beklenmedik yerlere götürebilir.'],['Bugün biraz sessizlik iyi gelecek.','Her boşluğu sesle doldurma.'],['Yardım teklifini kabul et.','Her şeyi tek başına taşıma alışkanlığını bırak.']);
 const cover=document.getElementById('cover'), page=document.getElementById('page'), book=document.getElementById('book'), hint=document.getElementById('hint'), actions=document.getElementById('actions');let lastTap=0,opened=false,lastAnswer='',answered=false,audioCtx=null;
-function sound(kind){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();const now=audioCtx.currentTime;const tones=kind==='page'?[420,610]:kind==='close'?[180,95]:kind==='open'?[260,440,680]:[300];tones.forEach((hz,i)=>{let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=i===0?'triangle':'sine';o.frequency.setValueAtTime(hz,now+i*.08);o.frequency.exponentialRampToValueAtTime(hz*.72,now+i*.08+.24);g.gain.setValueAtTime(.0001,now+i*.08);g.gain.exponentialRampToValueAtTime(.045,now+i*.08+.025);g.gain.exponentialRampToValueAtTime(.0001,now+i*.08+.42);o.connect(g);g.connect(audioCtx.destination);o.start(now+i*.08);o.stop(now+i*.08+.45)});if(kind==='open'||kind==='page'){noise(.12)} }catch(e){}}
+function sound(kind){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();const now=audioCtx.currentTime;if(kind==='wind'){noise(.42);return;}const tones=kind==='page'?[420,610]:kind==='close'?[180,95]:kind==='open'?[260,440,680]:[300];tones.forEach((hz,i)=>{let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=i===0?'triangle':'sine';o.frequency.setValueAtTime(hz,now+i*.08);o.frequency.exponentialRampToValueAtTime(hz*.72,now+i*.08+.24);g.gain.setValueAtTime(.0001,now+i*.08);g.gain.exponentialRampToValueAtTime(.045,now+i*.08+.025);g.gain.exponentialRampToValueAtTime(.0001,now+i*.08+.42);o.connect(g);g.connect(audioCtx.destination);o.start(now+i*.08);o.stop(now+i*.08+.45)});if(kind==='open'||kind==='page'){noise(.12)} }catch(e){}}
 function noise(duration){try{const n=audioCtx.createBuffer(1,audioCtx.sampleRate*duration,audioCtx.sampleRate),d=n.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,2);const src=audioCtx.createBufferSource(),g=audioCtx.createGain();src.buffer=n;g.gain.value=.025;src.connect(g);g.connect(audioCtx.destination);src.start()}catch(e){}}
 function puff(){const c=document.getElementById('candle');for(let i=0;i<4;i++){let m=document.createElement('div');m.className='smoke';m.style.animationDelay=(i*.18)+'s';c.appendChild(m);setTimeout(()=>m.remove(),3500)}}
 
 const secretWrap=document.getElementById('secret-wrap'),secretText=document.getElementById('secret-text'),plusBtn=document.getElementById('plus-btn'),plusNote=document.getElementById('plus-note');
-const secretLines=["İçindeki cevap, dışarıdan gelecek bir işaretten çok kendi sınırını ve isteğini tanımana bağlı.","Görünmeyen tarafı şu: bir kararın değerini sonuç değil, onu hangi niyetle seçtiğin de belirler.","Bu sayfanın devamı, korkunu yok etmeyi değil onunla birlikte küçük bir adım atmayı hatırlatıyor.","Bir kapı aralanabilir; fakat anahtar, başkasının onayını beklemeyi bıraktığın anda eline geçer.","Bazen tamamlayıcı cevap, beklediğin şeyi değil; beklerken kendinde büyüttüğün şeyi fark etmektir.","İşaretin özü şudur: neyi seçersen seç, seçimin sorumluluğunu sevgiyle taşıyabilecek bir alan yarat."];
+const secretLines = ["Bir sonraki adımı bilmen yeterli; bütün yolu bugün çözmek zorunda değilsin.", "Kararını verirken kendi sesine de başkalarınınki kadar yer aç.", "Bazen cesaret, hızlanmak değil; doğru anı sakince beklemektir.", "Kendine tanıdığın küçük bir izin, düşündüğünden büyük bir kapı açabilir.", "Her şeyin cevabı hemen gelmeyebilir; bu, yolunu kaybettiğin anlamına gelmez.", "Bir şeyi geride bırakırken ondan öğrendiklerini yanında taşıyabilirsin.", "İçinden geçenleri küçültme; ama onları anlamak için kendine zaman ver.", "Bugün attığın küçük adım, yarın daha net bir yön gösterebilir.", "Bir ihtimali seçmek, diğer bütün ihtimalleri sonsuza dek silmek değildir.", "Sınır çizmek, kalbini kapatmak değil; ona iyi bakmaktır.", "Bazen cevap, daha çok düşünmekte değil, biraz durup hissetmektedir.", "Kendini başkasının temposuna yetiştirmeye çalışma; senin ritmin de geçerli.", "Bir konuşmanın başlaması için kusursuz kelimeleri bekleme.", "Geçmişteki bir sonuç, bugünkü seçiminin kaderi olmak zorunda değil.", "İçinden gelen merakı takip et; ama yol üzerindeki işaretleri de oku.", "Her kapıyı açık tutman gerekmiyor. Sana iyi geleni seçebilirsin.", "Bazen en güçlü değişim, kimse fark etmeden verdiğin bir kararla başlar.", "Kendine yüklenmeden de sorumluluk alabilirsin.", "Beklemek gerekiyorsa bekle; fakat kendi hayatını bekleme odasına çevirme.", "Bir şeyin bitmesi, sende bıraktığı anlamın da silinmesi demek değil.", "Daha net bir soru, daha sakin bir cevabın önünü açabilir.", "Bugün her şeyi çözmek yerine, bir şeyi biraz daha iyi anlamayı dene.", "Yardım istemek yolunu kısaltabilir; bunu tek başına yapmak zorunda değilsin.", "Bir kararın sana ait olması için herkese açıklanması gerekmez.", "Küçük bir başlangıç, büyük bir söz vermekten daha gerçek olabilir.", "Kendini korurken yeni ihtimallere de kapıyı aralık bırak.", "Aceleyle verilen cevaplar yerine, içine sinen bir yön ara.", "Bazı şeyler değişirken önce ne istediğin berraklaşır.", "Bir adım geri çekilmek, vazgeçmek değil; manzarayı yeniden görmektir.", "Kendine karşı dürüst olmak, her şeyi hemen değiştirmek zorunda olduğun anlamına gelmez.", "Sana ait olmayan beklentileri bırakınca kendi isteğin daha rahat duyulur.", "Bir fırsatın değerini yalnızca büyüklüğü değil, sana ne hissettirdiği de belirler.", "Kendi kararının arkasında dur; gerektiğinde onu yeniden değerlendirecek esnekliği de koru.", "Bazen sessizlik, cevabın olgunlaşması için gereken tek alandır.", "Düşündüğünden daha fazla seçeneğin olabilir; bir kez daha etrafına bak.", "Bir şeyin zor olması, onun yanlış olduğu anlamına gelmez; ama seni tüketmesine de izin verme.", "Önce neyi istemediğini fark etmek, ne istediğini bulmana yardım edebilir.", "Kendine verdiğin sözleri küçük tut, ama onları gerçekten yerine getir.", "Birinin seni anlamasını beklerken kendi ihtiyacını unutma.", "Yeni bir yol, eski alışkanlıklarını yanında taşımak zorunda değil.", "İçini rahatlatan seçenek her zaman en kolay olan olmayabilir; yine de onu dinle.", "Yanlış anlaşılma korkusu, söylemen gereken şeyi sonsuza dek ertelemesin.", "Bazen ilerleme, daha fazlasını yapmak değil; gereksiz olanı bırakmaktır.", "Bir ihtimalin gerçekleşmesi için önce ona küçük bir yer açman gerekebilir.", "Bugün kendine biraz daha anlayışlı davran; bu da yol almanın bir parçası.", "Kendini kanıtlamak zorunda olmadığın bir yerde daha özgür düşünebilirsin.", "Bir sonuca bağlamak için acele etme; bazı sorular bir süre açık kalabilir.", "Yolunu değiştirmek fikrinden korkma; bazen yön güncellemek en doğru harekettir.", "Sana iyi gelen şeyi fark ettiğinde, onu hayatında koruyacak bir düzen kur.", "Güvenini tek bir işarete bağlama; davranışların zaman içindeki tutarlılığına bak.", "Bir başlangıç için tüm koşulların mükemmel olması gerekmiyor.", "Kendini dinlemek, yalnızca duygularını değil ihtiyaçlarını da ciddiye almaktır.", "Bu meseleye başka bir açıdan bakmak, henüz görmediğin bir çözüm gösterebilir.", "Kırgınlığını yok sayma; ama geleceğinin tek karar vericisi olmasına da izin verme.", "Bir şeyi seçtiğinde, ona emek vermek için kendine alan tanı.", "Her gecikme kayıp değildir; bazen hazırlık için sessiz bir zamandır.", "Daha az karşılaştır, daha çok gözlemle; kendi yolunun ayrıntıları sana ait.", "Sana huzur veren şeyin kıymetini, onu kaybetmeden önce de bil.", "Bir sorunun cevabı değişiyorsa, belki de sen yeni bir şey öğreniyorsundur.", "Kendini açıklamak yerine bazen davranışlarınla sınırını gösterebilirsin.", "Bir adımın küçük olması, etkisinin de küçük olacağı anlamına gelmez.", "İçinde büyüyen düşünceye dikkat et; onu besleyen şeyleri sen seçebilirsin.", "Yapamadıklarına takılmadan önce, bugün neleri sürdürdüğüne bak.", "Bazen doğru zaman, beklediğin işaret değil; hazırlığını tamamladığın andır.", "Birine yaklaşırken kendinden uzaklaşmamaya özen göster.", "Yeni bir cevap ararken eski bir gerçeği yeniden keşfedebilirsin.", "Duygularına yer ver; son kararı verirken somut gerçekleri de yanına al.", "Kendine ayırdığın vakit, başkalarından çaldığın bir zaman değildir.", "Her şeyi kontrol edemesen de vereceğin tepkiyi seçebilirsin.", "Biten bir dönemi anlamlandırmak, yeni olana yer açabilir.", "Bir kapıyı kapatırken diğerinin nerede olduğunu hemen bilmek zorunda değilsin.", "Kendi değerini tek bir cevabın ya da tek bir kişinin tepkisine bağlama.", "Bazen ihtiyacın olan şey yeni bir işaret değil, biraz dinlenmektir.", "Yolun karanlık görünen kısmında da küçük bir ışık yakabilirsin.", "Bir kararını değiştirmek, önceki haline ihanet etmek değildir.", "Kendine güvenmek, hiç tereddüt etmemek değil; tereddüt ederken de ilerleyebilmektir.", "Bir şeyin sana uygun olup olmadığını anlamak için onu küçük ölçekte deneyebilirsin.", "Bugün kurduğun bir cümle, uzun süredir bekleyen bir konuşmayı başlatabilir.", "Sana ait olmayan yükü bırakınca ellerin kendi yolunu kurmak için boşalır.", "Her fırsata evet demek zorunda değilsin; seçerek de büyüyebilirsin.", "Biraz mesafe, neyin özlem neyin alışkanlık olduğunu gösterebilir.", "Sakinlik, kararsızlık değildir; bazen en bilinçli hazırlıktır.", "Kendine verdiğin değeri, günlük seçimlerinde de görünür kıl.", "Bir ihtimalin kapısını arala; içeri girip girmemeye sonra karar verebilirsin.", "Bazen cevap, beklediğin kişiden değil kendi içindeki açıklıktan gelir.", "Küçük bir düzenleme, zihninde uzun süredir yer kaplayan şeyi hafifletebilir.", "Geçmişin sana bilgi verebilir; ama geleceğin için tek başına hüküm veremez.", "Ne hissettiğini anlamak için kendine acele ettirmeden birkaç dakika ayır.", "Bir sonraki adımın net değilse, önce seçeneklerini yazıp sadeleştir.", "Kendini korumakla bir ihtimale şans vermek arasında bir denge kurabilirsin.", "Bir şeyi istemek için onu herkese mantıklı göstermek zorunda değilsin.", "Yolun değişse de niyetini hatırlamak sana yön verebilir.", "Kendine yeni bir başlangıç hakkı tanımak için geçmişten izin bekleme.", "Bir sorunun içinde saklı olan küçük ayrıntıyı bugün fark edebilirsin.", "Sana iyi gelen insanlarla bağını güçlendirmek için küçük bir adım at.", "Bir şeyin cevabı henüz yoksa, merakını kaybetmeden bekleyebilirsin.", "Daha nazik bir iç ses, daha sağlam kararlar vermene yardım edebilir.", "Kendini sürekli açıklamak zorunda kaldığın yerde neye ihtiyaç duyduğunu düşün.", "Bir yolun sana ait olduğunu, yürüdükçe daha iyi anlayabilirsin.", "İlerlemek için bazen önce bir şeyi tamamlaman gerekir; en küçük parçadan başla.", "Seçimlerinin hepsi kusursuz olmak zorunda değil; öğrenmeye açık olmaları yeter.", "Biraz daha dikkat, gözünün önündeki fırsatı görünür kılabilir.", "Bugün verdiğin kararın yarın nasıl hissettireceğini de düşün.", "Sana ait olanı seçerken başkasına ait olanı da özgür bırak.", "Bir cevap seni rahatlatmıyorsa, sorunun başka bir tarafına bakmayı dene.", "Bazen yeni bir yol bulmak için eski bir alışkanlığa veda etmek gerekir.", "Kendi ihtiyacını dile getirmek, karşındakine seçim hakkı bırakmakla birlikte mümkündür.", "Zor bir dönemin içinde bile küçük bir güzelliğe yer açabilirsin.", "Bir kararın bütün hayatını tanımlamaz; gerektiğinde yeniden yön çizebilirsin.", "İçinde kalan şeyi ertelemek yerine, güvenli ve sakin bir zamanda konuş.", "Yapman gerekeni küçült; başlayabileceğin kadar küçük hale getir.", "Kendine bugün bir soru daha sor: Bunu gerçekten ben mi istiyorum?", "Biraz cesaret, biraz hazırlık ve kendine karşı dürüstlük yeterli olabilir.", "Bir işaret ararken kendi emeğinin oluşturduğu izleri de gör.", "Yükünü hafifletmek için her şeyi aynı anda çözmeye çalışma.", "Bazen en iyi cevap, kendine yeniden deneme hakkı vermektir.", "Ne kadar ilerlediğini görmek için ara sıra geriye değil, bugüne bak.", "Kendi hayatında misafir gibi bekleme; küçük bir seçimle yerini al.", "Bir şeyin değerini anlamak için onun peşinden koşarken ne kaybettiğini de fark et.", "Bugün bir şeyi başlatmak kadar, gereksiz bir şeyi bitirmek de iyi gelebilir.", "Kendine ait bir karar, zamanla daha da güçlenebilir.", "Bir ihtimali düşünmekten korkma; düşünmek, onu seçmek zorunda olduğun anlamına gelmez."];
+let secretLineBag=[];
+function nextSecretLine(){
+  if(!secretLineBag.length){secretLineBag=secretLines.map((_,i)=>i);for(let i=secretLineBag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[secretLineBag[i],secretLineBag[j]]=[secretLineBag[j],secretLineBag[i]];}}
+  return secretLines[secretLineBag.pop()];
+}
+
 // Cevap anlamına göre seçilen özgün mini illüstrasyonlar: SVG sahneleri, yalnız geometrik tekrarlar değil.
 const illustrations={
  door:`<path d="M28 84V28Q50 7 72 28V84Z"/><path d="M37 84V31Q50 18 63 31V84Z"/><circle cx="59" cy="58" r="2"/><path d="M15 88H85M20 25L50 8 80 25"/><path d="M50 38V52M43 45H57"/>`,
@@ -483,13 +498,139 @@ function makeAnswerArt(i){
  return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cevap ${i+1} için özel minyatür illüstrasyon"><defs><radialGradient id="warm" cx="50%" cy="55%"><stop offset="0" stop-color="#e4c48b" stop-opacity=".42"/><stop offset="1" stop-color="#e4c48b" stop-opacity="0"/></radialGradient><radialGradient id="warm${i}" cx="50%" cy="55%"><stop offset="0" stop-color="#e4c48b" stop-opacity=".42"/><stop offset="1" stop-color="#e4c48b" stop-opacity="0"/></radialGradient><linearGradient id="ink${i}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="currentColor" stop-opacity=".06"/><stop offset="1" stop-color="currentColor" stop-opacity=".18"/></linearGradient></defs><circle cx="80" cy="80" r="73" fill="url(#warm${i})"/><g stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".4">${starsAndFrame}${backdrop}</g><g stroke="currentColor" stroke-width="2" fill="url(#ink${i})" stroke-linecap="round" stroke-linejoin="round" opacity=".85">${motif}</g><g stroke="currentColor" stroke-width="1" fill="none" opacity=".35"><path d="M${22+rand(1)*20} 32q8-10 16 0t16 0"/><path d="M${105+rand(2)*20} 118q8-10 16 0t16 0"/><path d="M20 150H140" stroke-dasharray="2 4"/></g></svg>`;
 }
 
-let currentArtIndex=0;function setPageArt(){document.getElementById('page-art').innerHTML=makeAnswerArt(currentArtIndex);secretWrap.classList.remove('unlocked');secretWrap.classList.add('locked');secretText.textContent=secretLines[Math.floor(Math.random()*secretLines.length)];plusBtn.setAttribute('aria-label','Premium satır önizlemesini aç');plusNote.textContent='Gri kaleme dokun · Premium satır önizlemesi'}
-plusBtn.addEventListener('click',e=>{e.stopPropagation();sound('page');plusBtn.animate?.([{transform:'translate(-50%,-50%) rotate(-3.5deg) scale(1)'},{transform:'translate(-50%,-50%) rotate(2deg) scale(.9)'},{transform:'translate(-50%,-50%) rotate(-3deg) scale(1)'}],{duration:260,easing:'ease-out'});secretWrap.classList.toggle('unlocked');secretWrap.classList.toggle('locked');if(secretWrap.classList.contains('unlocked')){plusBtn.setAttribute('aria-label','Premium satırı kapat');plusNote.textContent='Premium satır önizlemesi açık';}else{plusBtn.setAttribute('aria-label','Premium satır önizlemesini aç');plusNote.textContent='Gri kaleme dokun · Premium satır önizlemesi'}});
+let currentArtIndex=0;
+const QUOTA_KEY='cevaplar-kitabi-free-opens-v1';
+const FREE_OPEN_LIMIT=5;
+const COOLDOWN_MS=24*60*60*1000;
+let quotaFallback={used:0,lockedUntil:0};
+let quotaRefreshTimer=null;
+let answerBag=[];
+function isPlusMember(){
+  // Gerçek abonelik kontrolü, sunucu tarafından doğrulandıktan sonra bu bayrağı true vermelidir.
+  return window.CEVAPLAR_KITABI_PLUS===true;
+}
+function readQuota(){
+  let q;
+  try{q=JSON.parse(localStorage.getItem(QUOTA_KEY)||'null')||quotaFallback;}catch(e){q=quotaFallback;}
+  q={used:Math.max(0,Number(q.used)||0),lockedUntil:Math.max(0,Number(q.lockedUntil)||0)};
+  if(q.lockedUntil && Date.now()>=q.lockedUntil){q={used:0,lockedUntil:0};writeQuota(q);}
+  if(q.used>=FREE_OPEN_LIMIT&&!q.lockedUntil){q.lockedUntil=Date.now()+COOLDOWN_MS;writeQuota(q);}
+  return q;
+}
+function writeQuota(q){
+  quotaFallback={used:q.used,lockedUntil:q.lockedUntil};
+  try{localStorage.setItem(QUOTA_KEY,JSON.stringify(quotaFallback));}catch(e){}
+}
+function timeLeft(ms){
+  const total=Math.max(0,Math.ceil(ms/60000));
+  const hours=Math.floor(total/60),minutes=total%60;
+  return hours?`${hours} saat ${minutes} dakika`:`${minutes} dakika`;
+}
+function quotaLocked(){return !isPlusMember()&&readQuota().lockedUntil>Date.now();}
+function scheduleQuotaRefresh(until){
+  if(quotaRefreshTimer)clearTimeout(quotaRefreshTimer);
+  if(until>Date.now())quotaRefreshTimer=setTimeout(()=>updateQuotaUI(),until-Date.now()+250);
+}
+function updateQuotaUI(){
+  const q=readQuota(),locked=!isPlusMember()&&q.lockedUntil>Date.now();
+  const again=document.getElementById('again');
+  if(again)again.disabled=locked;
+  if(locked)scheduleQuotaRefresh(q.lockedUntil);else if(quotaRefreshTimer){clearTimeout(quotaRefreshTimer);quotaRefreshTimer=null;}
+  cover.setAttribute('aria-label',locked?'Ücretsiz açılış hakkın doldu. 24 saat sonra yeniden deneyebilirsin.':'Cevaplar Kitabı. Açmak için kapağa iki kez dokun');
+  if(!opened){
+    if(locked){hint.textContent=`Ücretsiz 5 açılış hakkın doldu. ${timeLeft(q.lockedUntil-Date.now())} sonra yeniden açabilirsin.`;hint.classList.add('quota-lock');}
+    else{hint.innerHTML='Bir soru düşün. Yazmana, anlatmana gerek yok.<br>Hazır olduğunda kapağa iki kez dokun.';hint.classList.remove('quota-lock');}
+  }
+}
+function consumeOpen(){
+  if(isPlusMember())return {allowed:true,used:null};
+  const q=readQuota();
+  if(q.lockedUntil>Date.now())return {allowed:false,until:q.lockedUntil};
+  if(q.used>=FREE_OPEN_LIMIT){q.lockedUntil=Date.now()+COOLDOWN_MS;writeQuota(q);return {allowed:false,until:q.lockedUntil};}
+  q.used+=1;
+  if(q.used>=FREE_OPEN_LIMIT){q.lockedUntil=Date.now()+COOLDOWN_MS;scheduleQuotaRefresh(q.lockedUntil);}
+  writeQuota(q);
+  return {allowed:true,used:q.used,until:q.lockedUntil};
+}
+function nextAnswerIndex(){
+  if(!answerBag.length){answerBag=answers.map((_,i)=>i);for(let i=answerBag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[answerBag[i],answerBag[j]]=[answerBag[j],answerBag[i]];}}
+  return answerBag.pop();
+}
+function setPageArt(){
+  document.getElementById('page-art').innerHTML=makeAnswerArt(currentArtIndex);
+  secretWrap.classList.remove('unlocked','wind-active');secretWrap.classList.add('locked');
+  secretText.textContent=nextSecretLine();
+  plusBtn.setAttribute('aria-label','Tozu rüzgârla dağıt ve gizli satırı aç');
+  plusNote.textContent='Toza dokun · Rüzgâr gizli satırı açsın';
+  plusNote.style.opacity='1';
+}
+function revealSecret(e){
+  e.stopPropagation();
+  if(secretWrap.classList.contains('unlocked'))return;
+  sound('wind');
+  secretWrap.classList.add('wind-active','unlocked');
+  secretWrap.classList.remove('locked');
+  plusNote.textContent='Rüzgâr esti · Gizli satır ortaya çıktı';
+  plusBtn.setAttribute('aria-label','Gizli satır açıldı');
+  const candle=document.getElementById('candle');
+  candle.classList.remove('gust');void candle.offsetWidth;candle.classList.add('gust');
+  setTimeout(()=>secretWrap.classList.remove('wind-active'),1050);
+  setTimeout(()=>candle.classList.remove('gust'),1050);
+}
+plusBtn.addEventListener('click',revealSecret);
 
-function openBook(){if(opened)return;document.getElementById('candle').classList.remove('extinguished');opened=true;answered=true;book.classList.remove('airborne','closeflight');void book.offsetWidth;book.classList.add('airborne');sound('open');let answerIndex=Math.floor(Math.random()*answers.length);currentArtIndex=answerIndex;let item=answers[answerIndex];lastAnswer=item[0]+'\n'+item[1];document.getElementById('answer').textContent=item[0];document.getElementById('note').textContent=item[1];document.getElementById('pageno').textContent='— '+String(Math.floor(Math.random()*899)+101)+' —';setPageArt();cover.style.opacity='0';cover.style.transform='rotateY(-105deg)';cover.style.pointerEvents='none';setTimeout(()=>{page.classList.add('show');sound('page');},650);setTimeout(()=>book.classList.remove('airborne'),2600);hint.textContent='Cevabı bir an düşün. Belki de aradığın, bu cümlede değil sende saklı.';actions.style.display='flex';}
-function doubleTap(){const now=Date.now();if(now-lastTap<360){openBook();lastTap=0}else lastTap=now}cover.addEventListener('click',()=>{sound('tap');doubleTap();});cover.addEventListener('dblclick',e=>{e.preventDefault();openBook();});cover.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();doubleTap()}});
-function closeOnDouble(){const now=Date.now();if(now-lastTap<360){lastTap=0;reset();}else lastTap=now;}page.addEventListener('click',closeOnDouble);page.addEventListener('dblclick',e=>{e.preventDefault();reset();});
-function reset(){if(!opened)return;document.getElementById('candle').classList.add('extinguished');opened=false;answered=false;sound('close');puff();book.classList.remove('airborne');book.classList.add('closeflight');setTimeout(()=>book.classList.remove('closeflight'),2300);page.classList.remove('show');cover.style.opacity='1';cover.style.transform='';cover.style.pointerEvents='auto';actions.style.display='none';hint.innerHTML='Bir soru düşün. Yazmana, anlatmana gerek yok.<br>Hazır olduğunda kapağa iki kez dokun.';lastTap=0}
-document.getElementById('again').onclick=()=>{reset();setTimeout(openBook,2450)};document.getElementById('close').onclick=reset;document.getElementById('share').onclick=async()=>{const text='📖 Cevaplar Kitabı\n\n'+lastAnswer+'\n\nSen de zihninde bir soru tut ve kapağı iki kez tıkla.';if(navigator.share){try{await navigator.share({text})}catch(e){}}else{try{await navigator.clipboard.writeText(text);toast()}catch(e){toast('Paylaşım desteklenmiyor')}}};function toast(msg='Cevap kopyalandı'){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('visible');setTimeout(()=>t.classList.remove('visible'),1700)}
-document.getElementById('info').onclick=()=>{sound('tap');document.getElementById('overlay').classList.add('open')};document.getElementById('ok').onclick=()=>document.getElementById('overlay').classList.remove('open');document.getElementById('overlay').onclick=e=>{if(e.target.id==='overlay')e.currentTarget.classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape'){reset();document.getElementById('overlay').classList.remove('open')}});
+function openBook(){
+  if(opened)return;
+  const quota=consumeOpen();
+  if(!quota.allowed){
+    updateQuotaUI();
+    const q=readQuota();
+    const msg=`Ücretsiz 5 açılış hakkın doldu. ${timeLeft((q.lockedUntil||Date.now()+COOLDOWN_MS)-Date.now())} sonra yeniden açabilirsin.`;
+    hint.textContent=msg;hint.classList.add('quota-lock');toast('5 ücretsiz açılış tamamlandı. 24 saat sonra yeniden deneyebilirsin.');
+    return;
+  }
+  document.getElementById('candle').classList.remove('extinguished');
+  opened=true;answered=true;book.classList.remove('airborne','closeflight');void book.offsetWidth;book.classList.add('airborne');sound('open');
+  const answerIndex=nextAnswerIndex();currentArtIndex=answerIndex;const item=answers[answerIndex];
+  lastAnswer=item[0]+'\n'+item[1];document.getElementById('answer').textContent=item[0];document.getElementById('note').textContent=item[1];
+  document.getElementById('pageno').textContent='— '+String(Math.floor(Math.random()*899)+101)+' —';setPageArt();
+  cover.style.opacity='0';cover.style.transform='rotateY(-105deg)';cover.style.pointerEvents='none';
+  setTimeout(()=>{page.classList.add('show');sound('page');},650);setTimeout(()=>book.classList.remove('airborne'),2600);
+  actions.style.display='flex';hint.classList.remove('quota-lock');
+  if(quota.used===FREE_OPEN_LIMIT&&!isPlusMember()){
+    hint.textContent='Bu, ücretsiz 5. açılışın. 24 saatlik bekleme süren başladı.';
+    document.getElementById('again').disabled=true;
+  }else if(!isPlusMember()&&quota.used!==null){
+    hint.textContent=`Cevabını buldun. Ücretsiz açılış hakkın: ${FREE_OPEN_LIMIT-quota.used}/5.`;
+  }else{
+    hint.textContent='Cevabı bir an düşün. Belki de aradığın, bu cümlede değil sende saklı.';
+  }
+}
+function doubleTap(){const now=Date.now();if(now-lastTap<360){openBook();lastTap=0}else lastTap=now}
+cover.addEventListener('click',()=>{sound('tap');doubleTap();});
+cover.addEventListener('dblclick',e=>{e.preventDefault();openBook();});
+cover.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();doubleTap()}});
+function closeOnDouble(){const now=Date.now();if(now-lastTap<360){lastTap=0;reset();}else lastTap=now;}
+page.addEventListener('click',closeOnDouble);page.addEventListener('dblclick',e=>{e.preventDefault();reset();});
+function reset(){
+  if(!opened)return;
+  document.getElementById('candle').classList.add('extinguished');opened=false;answered=false;sound('close');puff();
+  book.classList.remove('airborne');book.classList.add('closeflight');setTimeout(()=>book.classList.remove('closeflight'),2300);
+  page.classList.remove('show');cover.style.opacity='1';cover.style.transform='';cover.style.pointerEvents='auto';
+  actions.style.display='none';lastTap=0;updateQuotaUI();
+}
+document.getElementById('again').onclick=()=>{
+  if(quotaLocked()){updateQuotaUI();const q=readQuota();toast(`Yeni açılış için ${timeLeft(q.lockedUntil-Date.now())} beklemelisin.`);return;}
+  reset();setTimeout(openBook,2450);
+};
+document.getElementById('close').onclick=reset;
+document.getElementById('share').onclick=async()=>{const text='📖 Cevaplar Kitabı\n\n'+lastAnswer+'\n\nSen de zihninde bir soru tut ve kapağı iki kez tıkla.';if(navigator.share){try{await navigator.share({text})}catch(e){}}else{try{await navigator.clipboard.writeText(text);toast()}catch(e){toast('Paylaşım desteklenmiyor')}}};
+function toast(msg='Cevap kopyalandı'){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('visible');setTimeout(()=>t.classList.remove('visible'),1900)}
+document.getElementById('info').onclick=()=>{sound('tap');document.getElementById('overlay').classList.add('open')};
+document.getElementById('ok').onclick=()=>document.getElementById('overlay').classList.remove('open');
+document.getElementById('overlay').onclick=e=>{if(e.target.id==='overlay')e.currentTarget.classList.remove('open')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){reset();document.getElementById('overlay').classList.remove('open')}});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)updateQuotaUI()});
+updateQuotaUI();
+
 </script></body></html>

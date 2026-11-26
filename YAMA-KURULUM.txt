@@ -1,13 +1,26 @@
-CEVAPLAR KITABI — CEKMECELI MASA YAMASI
+CEVAPLAR KITABI — TOZ / RÜZGÂR / 5 AÇILIŞ YAMASI
 
-Icerik:
+Dosyalar:
 - index.html
 - assets/turk-hali.webp
 
 Kurulum:
-1. ZIP arsivini acin.
-2. index.html dosyasini mevcut projenizdeki index.html ile degistirin.
-3. assets klasorunu ayni konuma kopyalayin; assets/turk-hali.webp yolu korunmalidir.
-4. GitHub'a gonderip sayfayi yenileyin.
+1) ZIP içeriğini mevcut GitHub projesinin kök klasörüne çıkar.
+2) index.html dosyasını değiştir.
+3) assets/turk-hali.webp dosyasını assets klasörüyle birlikte yükle.
+4) GitHub Pages dağıtımını yenile.
 
-Kitabin acilma/kapanma, cevap secme, paylasma, mum alevi ve premium kalem davranislari korunmustur.
+Değişiklikler:
+- Gizli satır için kalem kaldırıldı; sayfada küçük bir toz birikintisi görünür.
+- Toza dokunulduğunda rüzgâr animasyonu tozu dağıtır ve gizli satırı netleştirir.
+- Aynı rüzgâr sırasında mum alevi yana eğilir, ışığı dalgalanır; alev sönmez.
+- Gizli satır havuzu 100'den fazla farklı metin içerir; havuz bitene kadar aynı satır tekrar seçilmez.
+- Ana cevaplar da mevcut cevap havuzu tamamen dolaşılmadan tekrar etmez.
+- Plus olmayan ziyaretçiler 5 kitap açılışı yapabilir; 5. açılışın ardından 24 saatlik süre başlar.
+- Kullanım sayacı localStorage ile aynı tarayıcı/origin üzerinde saklanır.
+
+PLUS ENTEGRASYONU / ÖNEMLİ SINIRLAMA:
+Bu proje şu an statik HTML olarak çalışıyor. Doğrulanmış üyelik hesabı veya sunucu tarafı abonelik sistemi bu ZIP'te bulunmuyor.
+Üyeliği sunucu tarafında doğrulayan sistem, sayfa betiği yüklenmeden önce window.CEVAPLAR_KITABI_PLUS = true değerini vermelidir.
+Bu bayrak yalnızca sunucunun doğruladığı abonelik durumundan üretilmelidir; kullanıcı tarayıcısında sabit true yazmak güvenli üyelik kontrolü değildir.
+Statik/localStorage sürümündeki 5 kullanım sınırı tarayıcı verisi silinerek veya farklı tarayıcı/cihaz kullanılarak aşılabilir. Kesin ve hesaplar arası limit için sayım ve 24 saat kilidi sunucuda tutulmalıdır.
