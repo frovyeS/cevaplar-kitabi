@@ -4,8 +4,8 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#11100e">
 <title>Cevaplar Kitabı</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
-:root{--bg:#11100e;--gold:#c9a66b;--gold2:#8f6d3f;--cream:#efe3c9;--muted:#9a9285;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif}
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+:root{--bg:#11100e;--gold:#c9a66b;--gold2:#8f6d3f;--cream:#efe3c9;--muted:#9a9285;--serif:'Cormorant Garamond',Georgia,serif;--display:'Bodoni Moda','Cormorant Garamond',Georgia,serif;--engraved:'Cinzel','Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 38%,#28221a 0%,#171411 42%,#0e0d0c 100%);color:var(--cream);min-height:100svh;font-family:var(--sans);overflow-x:hidden}body:before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E")}
 .wrap{min-height:100svh;display:flex;flex-direction:column;align-items:center;padding:28px 18px 24px;position:relative}.top{width:min(900px,100%);display:flex;justify-content:space-between;align-items:center}.brand{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#a99a7e}.iconbtn{border:1px solid #554634;background:#171512;color:#b8a783;border-radius:50%;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;font-size:16px;transition:.2s}.iconbtn:hover{border-color:var(--gold);color:var(--gold)}.heading{text-align:center;margin:40px 0 24px}.heading h1{font-family:var(--serif);font-weight:500;letter-spacing:.035em;font-size:clamp(35px,7vw,57px);margin:0;color:#ead7b5}.heading p{font-size:11px;letter-spacing:.19em;text-transform:uppercase;color:#a69a84;margin:8px 0 0}
 .stage{width:min(100%,520px);height:min(62vh,540px);min-height:390px;display:flex;align-items:center;justify-content:center;perspective:1400px;position:relative}.book{position:relative;width:min(82vw,390px);height:min(55vh,470px);min-height:360px;max-height:470px;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.75,.2,1);filter:drop-shadow(0 28px 35px #0008)}.book:after{content:'';position:absolute;right:-9px;top:9px;bottom:9px;width:13px;background:repeating-linear-gradient(90deg,#8a704b,#d4b984 1px,#6f593c 2px,#b18c59 3px);border-radius:0 5px 5px 0;transform:translateZ(-5px)}.cover{position:absolute;inset:0;border-radius:6px 12px 12px 6px;background:linear-gradient(125deg,#413022,#211811 44%,#35271b);border:1px solid #8b714d;box-shadow:inset 0 0 0 5px #302318,inset 0 0 0 6px #8a704a,inset 15px 0 25px #0005;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;overflow:hidden}.cover:before{content:'';position:absolute;inset:17px;border:1px solid #a68a5d;opacity:.8;border-radius:3px}.cover:after{content:'';position:absolute;inset:26px;border:1px solid #72583a;opacity:.7}.orn{position:absolute;color:#c3a371;font-size:31px;opacity:.9}.orn.tl{top:30px;left:34px}.orn.br{bottom:30px;right:34px;transform:rotate(180deg)}.cover-content{text-align:center;position:relative;padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px}.symbol{font-size:43px;color:#c5a575;filter:drop-shadow(0 0 14px #b58b4b44)}.cover-title{font-family:var(--serif);font-size:clamp(35px,8vw,48px);line-height:.92;letter-spacing:.06em;color:#e5d0aa;text-shadow:0 2px 9px #0008}.cover-sub{font-family:var(--serif);font-style:italic;font-size:18px;letter-spacing:.04em;color:#b79b6d}.cover-hint{margin-top:25px;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#b8a17b;animation:pulse 2.4s infinite}@keyframes pulse{50%{opacity:.55}}
@@ -27,9 +27,160 @@
 .plus-btn{display:block;margin:12px auto 2px;border:1px solid #8b7555;background:#33271b;color:#7a5e36;border-radius:30px;padding:9px 14px;font:10px var(--sans);letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:.25s}.plus-btn:hover{background:#4b3927}.plus-note{font:10px/1.5 var(--sans);color:#887653;margin-top:5px}
 .page-art{width:66px;height:66px;margin:0 auto 8px;color:#967b51;opacity:.7}.page-art svg{width:100%;height:100%}
 
+
+
+/* 2026 visual refinement — Anatolian textile, embossed cover and tactile controls */
+body{
+  position:relative;
+  background-color:#171014;
+  background-image:
+    radial-gradient(ellipse at 50% 48%,rgba(15,13,12,.94) 0%,rgba(15,13,12,.84) 24%,rgba(15,13,12,.62) 48%,rgba(10,8,9,.28) 78%,rgba(8,7,8,.2) 100%),
+    linear-gradient(90deg,rgba(12,9,10,.45),transparent 24%,transparent 76%,rgba(12,9,10,.45)),
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDkwMCI+CjxkZWZzPgogIDxwYXR0ZXJuIGlkPSJ3ZWF2ZSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgIDxwYXRoIGQ9Ik0wIDJIMTJNMCA4SDEyIiBzdHJva2U9IiNlMGJkODAiIHN0cm9rZS1vcGFjaXR5PSIuMDkiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPHBhdGggZD0iTTIgMFYxMk04IDBWMTIiIHN0cm9rZT0iIzA4MDkwZCIgc3Ryb2tlLW9wYWNpdHk9Ii4yMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPC9wYXR0ZXJuPgogIDxwYXR0ZXJuIGlkPSJmaWVsZCIgd2lkdGg9IjExOCIgaGVpZ2h0PSIxMTgiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgPHBhdGggZD0iTTU5IDggNzUgNDIgMTEwIDU5IDc1IDc2IDU5IDExMCA0MyA3NiA4IDU5IDQzIDQyWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDJhNzY1IiBzdHJva2Utb3BhY2l0eT0iLjI0IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxwYXRoIGQ9Ik01OSAyNSA2OCA1MCA5MyA1OSA2OCA2OCA1OSA5MyA1MCA2OCAyNSA1OSA1MCA1MFoiIGZpbGw9IiMxNzNiM2EiIGZpbGwtb3BhY2l0eT0iLjQ4IiBzdHJva2U9IiNjNjhkNTgiIHN0cm9rZS1vcGFjaXR5PSIuMzgiIHN0cm9rZS13aWR0aD0iMS4zIi8+CiAgICA8cGF0aCBkPSJNNTkgMzkgNzkgNTkgNTkgNzkgMzkgNTlaIiBmaWxsPSIjN2EzNDM0IiBmaWxsLW9wYWNpdHk9Ii43MiIgc3Ryb2tlPSIjZTBjMThhIiBzdHJva2Utb3BhY2l0eT0iLjM1Ii8+CiAgICA8Y2lyY2xlIGN4PSI1OSIgY3k9IjU5IiByPSI0IiBmaWxsPSIjZDdiNzdkIiBmaWxsLW9wYWNpdHk9Ii41OCIvPgogIDwvcGF0dGVybj4KICA8ZyBpZD0icm9zZXR0ZSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDliNzdkIiBzdHJva2Utb3BhY2l0eT0iLjcyIiBzdHJva2Utd2lkdGg9IjMiPgogICAgPHBhdGggZD0iTTAtNjYgMTYtMjggNTQtMTYgMjggMCA1NCAxNiAxNiAyOCAwIDY2LTE2IDI4LTU0IDE2LTI4IDAtNTQtMTYtMTYtMjhaIiBmaWxsPSIjN2IzNDM0IiBmaWxsLW9wYWNpdHk9Ii42Ii8+CiAgICA8cGF0aCBkPSJNMC00MyAxMS0xMSA0MyAwIDExIDExIDAgNDMtMTEgMTEtNDMgMC0xMS0xMVoiIGZpbGw9IiMxNTNhM2EiIGZpbGwtb3BhY2l0eT0iLjY4IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxwYXRoIGQ9Ik0wLTIzIDIzIDAgMCAyMy0yMyAwWiIgZmlsbD0iI2M1OWE2MCIgZmlsbC1vcGFjaXR5PSIuNTUiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPGNpcmNsZSByPSI3IiBmaWxsPSIjZTVjOThmIiBzdHJva2U9Im5vbmUiLz4KICA8L2c+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iOTAwIiBmaWxsPSIjMjgxNDFiIi8+CjxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCN3ZWF2ZSkiLz4KPHJlY3QgeD0iOTIiIHk9IjkyIiB3aWR0aD0iMTQxNiIgaGVpZ2h0PSI3MTYiIGZpbGw9IiMzNTE4MjAiIGZpbGwtb3BhY2l0eT0iLjQ1IiBzdHJva2U9IiNjMzlhNjUiIHN0cm9rZS13aWR0aD0iMyIvPgo8cmVjdCB4PSIxMTIiIHk9IjExMiIgd2lkdGg9IjEzNzYiIGhlaWdodD0iNjc2IiBmaWxsPSJ1cmwoI2ZpZWxkKSIgc3Ryb2tlPSIjZTBiZjgzIiBzdHJva2Utb3BhY2l0eT0iLjcyIiBzdHJva2Utd2lkdGg9IjIiLz4KPHJlY3QgeD0iMTI4IiB5PSIxMjgiIHdpZHRoPSIxMzQ0IiBoZWlnaHQ9IjY0NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjN2QzYTNkIiBzdHJva2Utd2lkdGg9IjkiLz4KPHJlY3QgeD0iMTQwIiB5PSIxNDAiIHdpZHRoPSIxMzIwIiBoZWlnaHQ9IjYyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDJhZDc1IiBzdHJva2Utb3BhY2l0eT0iLjc1IiBzdHJva2Utd2lkdGg9IjIiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGJiNzdjIiBzdHJva2Utb3BhY2l0eT0iLjQyIiBzdHJva2Utd2lkdGg9IjMiPgogIDxwYXRoIGQ9Ik0xNTUgMTU1SDE0NDVWNzQ1SDE1NVoiIHN0cm9rZS1kYXNoYXJyYXk9IjMgMTMiLz4KICA8cGF0aCBkPSJNMTgwIDE4MCAyMDUgMjA1IDE4MCAyMzAgMTU1IDIwNVpNMTQyMCAxODAgMTQ0NSAyMDUgMTQyMCAyMzAgMTM5NSAyMDVaTTE4MCA2NzAgMjA1IDY5NSAxODAgNzIwIDE1NSA2OTVaTTE0MjAgNjcwIDE0NDUgNjk1IDE0MjAgNzIwIDEzOTUgNjk1WiIvPgo8L2c+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMCA0NTApIj4KICA8Y2lyY2xlIHI9IjI0NSIgZmlsbD0iIzI4MTUxZSIgZmlsbC1vcGFjaXR5PSIuMjYiIHN0cm9rZT0iI2QzYWQ3MiIgc3Ryb2tlLW9wYWNpdHk9Ii40MiIgc3Ryb2tlLXdpZHRoPSI1Ii8+CiAgPGNpcmNsZSByPSIyMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UxYmY4NSIgc3Ryb2tlLW9wYWNpdHk9Ii41IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjUgMTAiLz4KICA8Y2lyY2xlIHI9IjE4NyIgZmlsbD0iIzE3MzgzYSIgZmlsbC1vcGFjaXR5PSIuMiIgc3Ryb2tlPSIjYTg3OTU0IiBzdHJva2Utb3BhY2l0eT0iLjUyIiBzdHJva2Utd2lkdGg9IjUiLz4KICA8cGF0aCBkPSJNMC0xODUgNDgtNDggMTg1IDAgNDggNDggMCAxODUtNDggNDgtMTg1IDAtNDgtNDhaIiBmaWxsPSIjODAzYTNhIiBmaWxsLW9wYWNpdHk9Ii40IiBzdHJva2U9IiNkOGI1N2QiIHN0cm9rZS1vcGFjaXR5PSIuNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CiAgPHBhdGggZD0iTTAtMTQyIDE0MiAwIDAgMTQyLTE0MiAwWiIgZmlsbD0iIzE4MzkzYSIgZmlsbC1vcGFjaXR5PSIuNjQiIHN0cm9rZT0iI2UzYzM4YSIgc3Ryb2tlLW9wYWNpdHk9Ii43IiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cGF0aCBkPSJNMC0xMTIgMzAtMzAgMTEyIDAgMzAgMzAgMCAxMTItMzAgMzAtMTEyIDAtMzAtMzBaIiBmaWxsPSIjNmQzMDM1IiBmaWxsLW9wYWNpdHk9Ii44IiBzdHJva2U9IiNlM2JkN2UiIHN0cm9rZS13aWR0aD0iMyIvPgogIDx1c2UgaHJlZj0iI3Jvc2V0dGUiLz4KPC9nPgo8ZyBvcGFjaXR5PSIuOCI+CiAgPHVzZSBocmVmPSIjcm9zZXR0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjA1IDIwNSkgc2NhbGUoLjc4KSIvPgogIDx1c2UgaHJlZj0iI3Jvc2V0dGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzOTUgMjA1KSBzY2FsZSguNzgpIi8+CiAgPHVzZSBocmVmPSIjcm9zZXR0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjA1IDY5NSkgc2NhbGUoLjc4KSIvPgogIDx1c2UgaHJlZj0iI3Jvc2V0dGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzOTUgNjk1KSBzY2FsZSguNzgpIi8+CjwvZz4KPGcgc3Ryb2tlPSIjZDliNzdkIiBzdHJva2Utb3BhY2l0eT0iLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMyI+CiAgPHBhdGggZD0iTTM1IDM1SDE1NjVWODY1SDM1WiIvPjxwYXRoIGQ9Ik01MiA1MkgxNTQ4Vjg0OEg1MloiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHBhdGggZD0iTTY1IDkwcTM1LTUwIDcwIDB0NzAgME0xMzk1IDkwcTM1LTUwIDcwIDB0NzAgME02NSA4MTBxMzUtNTAgNzAgMHQ3MCAwTTEzOTUgODEwcTM1LTUwIDcwIDB0NzAgMCIvPgo8L2c+Cjwvc3ZnPg==");
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-position:center,center,center;
+  background-size:cover,cover,cover;
+  background-attachment:fixed,fixed,fixed;
+}
+body:before{z-index:0;opacity:.09}
+body:after{
+  content:"";position:fixed;inset:12px;z-index:0;pointer-events:none;
+  border:1px solid rgba(218,184,126,.42);
+  box-shadow:inset 0 0 0 5px rgba(35,18,21,.55),inset 0 0 0 6px rgba(192,151,91,.2),0 0 22px #0008;
+}
+.wrap{z-index:1;padding-top:30px;padding-bottom:26px}
+.heading{margin:34px 0 21px}
+.heading h1{font-family:var(--display);font-weight:500;letter-spacing:.025em;text-shadow:0 3px 18px #000b,0 1px 0 #fff2}
+.heading p{font-size:10px;letter-spacing:.22em;color:#c0ae8f;text-shadow:0 2px 8px #000}
+.brand{font-family:var(--engraved);font-size:9px;letter-spacing:.2em;color:#d2b987;text-shadow:0 2px 7px #000}
+
+/* Leather-and-gold book cover */
+.book{filter:drop-shadow(0 30px 34px #000c) drop-shadow(0 2px 1px #d0aa6a33)}
+.book:after{right:-11px;width:15px;background:repeating-linear-gradient(90deg,#6e5033 0 1px,#e0c18b 1px 2px,#9c7748 2px 3px,#ead6ac 3px 4px);box-shadow:3px 0 8px #0008}
+.cover{
+  border:1px solid #c5a36d;border-radius:5px 13px 13px 5px;
+  background:
+    radial-gradient(ellipse at 50% 8%,rgba(168,106,75,.26),transparent 50%),
+    repeating-linear-gradient(34deg,rgba(255,255,255,.018) 0 1px,transparent 1px 4px),
+    linear-gradient(118deg,#512c2b 0%,#2b171d 38%,#1d1218 69%,#3b2020 100%);
+  box-shadow:inset 0 0 0 5px #24151a,inset 0 0 0 6px #bd965d,inset 0 0 0 11px rgba(15,9,12,.45),inset 13px 0 25px #0008,inset -5px 0 18px #d9b47b16,0 0 0 1px #090708;
+}
+.cover:before{inset:18px;border:1px solid #d8b77d;opacity:.88;box-shadow:inset 0 0 0 5px rgba(202,165,106,.08),0 0 18px #d5ad6a12}
+.cover:after{inset:27px;border:1px solid rgba(199,157,96,.54);opacity:1;background:linear-gradient(135deg,transparent 48%,rgba(214,177,115,.035) 50%,transparent 52%)}
+.orn{color:#e0c18a;text-shadow:0 1px 0 #3b211d,0 0 12px #d6b17455}
+.cover-content{gap:13px;padding:22px}
+.symbol{font-size:39px;color:#dfbd7f;text-shadow:0 0 18px #dfb87955,0 2px 2px #000}
+.cover-title{font-family:var(--engraved);font-weight:500;font-size:clamp(31px,7.2vw,43px);line-height:1.02;letter-spacing:.105em;color:#f0d8aa;text-shadow:0 1px 0 #765637,0 2px 0 #4a2b25,0 4px 12px #000d}
+.cover-sub{font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:.2em;color:#d0ad77;text-shadow:0 2px 6px #000}
+.cover-hint{font-family:var(--engraved);font-size:9px;letter-spacing:.16em;color:#ddc18e;margin-top:22px}
+.cover .cover-content:after{content:'✧  ❖  ✧';bottom:-43px;color:#d2ae75;font-family:var(--serif);font-size:15px;letter-spacing:.45em;text-shadow:0 0 10px #d7b77b44}
+
+/* Warm, tactile parchment page */
+.page{
+  background:
+    radial-gradient(ellipse at 50% 46%,rgba(255,250,231,.6),transparent 66%),
+    repeating-linear-gradient(0deg,rgba(111,84,49,.025) 0 1px,transparent 1px 4px),
+    linear-gradient(135deg,#f5ead3 0%,#e8d6b6 48%,#d8c19a 100%);
+  box-shadow:inset 0 0 0 7px #f0dfbf,inset 0 0 0 8px #a98758,inset 0 0 0 12px rgba(255,255,255,.22),inset 0 0 32px rgba(93,65,34,.16),2px 3px 10px #0004;
+}
+.page:before{inset:21px;border:1px solid rgba(151,116,69,.78);box-shadow:inset 0 0 0 5px rgba(158,125,77,.08)}
+.page .mini{font-family:var(--engraved);font-size:9px;letter-spacing:.24em;color:#8b6a40}
+.answer{font-family:var(--display);font-weight:500;letter-spacing:.005em;color:#35271d;text-shadow:0 1px 0 #fff9}
+.page .note{font-family:var(--serif);font-size:16px;color:#806747}
+.pageno{font-family:var(--engraved);font-size:10px;letter-spacing:.2em;color:#8e7048}
+.answer-mark{color:#a0804e;filter:drop-shadow(0 1px 0 #fff7)}
+
+/* A small brass candle stand and a layered living flame */
+.candle{filter:drop-shadow(0 15px 18px #000b) drop-shadow(0 0 13px #d79a4a18)}
+.candle:before{content:"";position:absolute;left:16px;top:-13px;width:38px;height:43px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,226,151,.35),rgba(247,160,62,.13) 45%,transparent 76%);filter:blur(5px);z-index:1;pointer-events:none}
+.wax{
+  background:linear-gradient(90deg,#8d7454 0%,#c7ae85 16%,#f0e0c0 33%,#d6c09a 54%,#a78a61 82%,#766044 100%);
+  box-shadow:inset 4px 0 7px #fff6,inset -5px 0 9px #513b27aa,0 1px 2px #0007;
+}
+.wax:before{background:radial-gradient(ellipse at 50% 45%,#604a32 0 27%,#c6b18d 58%,#e5d3b0 78%);box-shadow:inset 0 1px 3px #fff8}
+.wax:after{content:"";position:absolute;left:5px;right:5px;top:-2px;height:7px;border-radius:50%;border-top:1px solid #fff8;box-shadow:0 -2px 4px #fff3}
+.drip{background:linear-gradient(90deg,#9f8460,#ead9b9 48%,#b59a73);box-shadow:1px 1px 2px #65503966}
+.d2{height:16px}
+.candle-base{position:absolute;bottom:0;left:6px;width:56px;height:23px;border-radius:0;background:none;box-shadow:none}
+.holder-neck{position:absolute;left:18px;bottom:6px;width:20px;height:13px;background:linear-gradient(90deg,#76512e,#e2c18a 35%,#9c713d 72%,#614326);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);box-shadow:0 2px 3px #0008}
+.holder-foot{position:absolute;left:0;bottom:0;width:56px;height:9px;border-radius:50%;background:linear-gradient(180deg,#e2c58d 0%,#9d7544 48%,#533a25 100%);box-shadow:0 4px 7px #0009,inset 0 1px 2px #fff9}
+.holder-rim{position:absolute;left:-2px;bottom:13px;width:60px;height:12px;border-radius:50%;border:2px solid #b38d59;background:linear-gradient(180deg,#ecd9aa,#987244);box-shadow:0 2px 4px #0007,inset 0 1px 2px #fff8}
+.wick{background:linear-gradient(90deg,#1c1510,#50402b);box-shadow:0 0 4px #ffb34755}
+.flame{
+  width:20px;height:34px;left:25px;bottom:91px;
+  background:radial-gradient(ellipse at 54% 72%,#fffde8 0 7%,#fff0b3 17%,#ffd06f 35%,#ff9b35 62%,#c94f1b 88%);
+  box-shadow:0 0 7px #ffd47bba,0 0 17px #ff9a37a6,0 0 30px #ff8a283d;
+  filter:blur(.1px);z-index:4;
+}
+.flame:before{content:"";position:absolute;inset:-5px -6px -1px;border-radius:80% 12% 80% 80%;background:radial-gradient(ellipse at 60% 68%,rgba(255,224,135,.38),rgba(255,139,35,.16) 48%,transparent 76%);filter:blur(4px);z-index:-1}
+.flame i{inset:8px 6px 5px;background:radial-gradient(ellipse at 50% 65%,#fffef0 0 18%,#fff0bd 48%,rgba(255,211,116,.4) 78%,transparent);opacity:1;filter:blur(.3px)}
+.glow{left:-78px;top:-57px;width:225px;height:235px;background:radial-gradient(ellipse,rgba(255,188,91,.22),rgba(226,132,42,.13) 34%,transparent 73%);filter:blur(2px)}
+.candle:after{left:-62px;top:-38px;width:190px;height:220px;background:radial-gradient(ellipse,rgba(255,183,79,.13),transparent 72%)}
+
+/* The old grey strip is now an actual graphite pencil; tap to reveal the preview */
+.secret-wrap{max-width:320px;margin:10px auto 0;padding:0 4px;color:#594632;font:italic 14px/1.5 var(--serif);min-height:86px}
+.secret-text{transition:filter .45s,opacity .45s;position:relative;z-index:1}
+.secret-wrap.locked .secret-text{filter:blur(4.7px);opacity:.52}
+.secret-wrap .marker{display:none}
+.premium-pencil{
+  position:absolute;z-index:4;left:50%;top:42%;
+  display:block;width:178px;height:29px;margin:0;padding:0;
+  border:0;border-radius:0;background:transparent;
+  transform:translate(-50%,-50%) rotate(-3.5deg);
+  cursor:pointer;filter:drop-shadow(0 3px 3px rgba(48,39,29,.35));
+  transition:transform .25s,filter .25s,opacity .35s;
+  font-size:0;color:transparent;overflow:visible;
+}
+.premium-pencil:hover{transform:translate(-50%,-54%) rotate(-2deg);filter:drop-shadow(0 5px 5px rgba(48,39,29,.42))}
+.premium-pencil:focus-visible{outline:2px solid #9d7848;outline-offset:5px;border-radius:4px}
+.pencil-body{position:absolute;left:16px;right:24px;top:8px;height:13px;border-radius:2px;background:linear-gradient(180deg,#f1f1ee 0%,#c9ccca 19%,#85898b 46%,#c9ccca 68%,#74787b 100%);box-shadow:inset 0 1px 1px #fff,inset 0 -1px 1px #4d5154,0 1px 1px #4e4d49}
+.pencil-body:after{content:"";position:absolute;left:8px;right:7px;top:3px;height:1px;background:rgba(255,255,255,.52);box-shadow:0 4px 0 rgba(35,39,41,.18)}
+.pencil-tip{position:absolute;left:1px;top:8px;width:17px;height:13px;clip-path:polygon(100% 0,100% 100%,0 50%);background:linear-gradient(180deg,#d2c3a7 0 48%,#9b876a 50% 100%)}
+.pencil-tip:after{content:"";position:absolute;left:0;top:5px;width:5px;height:3px;background:#3d3934;clip-path:polygon(100% 0,100% 100%,0 50%)}
+.pencil-ferrule{position:absolute;right:15px;top:8px;width:11px;height:13px;background:repeating-linear-gradient(90deg,#6d7072 0 2px,#d7d9d8 2px 4px);border-left:1px solid #65696b;border-right:1px solid #55595b}
+.pencil-eraser{position:absolute;right:2px;top:8px;width:15px;height:13px;border-radius:2px 5px 5px 2px;background:linear-gradient(180deg,#c9c4bd,#92918f 55%,#6f7172);box-shadow:inset 0 1px 1px #fff8,0 1px 1px #555}
+.secret-wrap.unlocked .premium-pencil{opacity:0;pointer-events:none;transform:translate(-50%,-50%) rotate(4deg) scale(.75)}
+.secret-wrap.unlocked .secret-text{filter:none;opacity:1}
+.plus-btn{font-size:0;color:transparent}
+.plus-note{position:relative;z-index:2;margin-top:5px;font:9px/1.45 var(--sans);letter-spacing:.06em;color:#8c734f}
+.action{font-family:var(--engraved);font-size:10px;letter-spacing:.07em;padding:12px 18px;border:1px solid rgba(199,163,105,.72);background:linear-gradient(180deg,#28201b,#171310);color:#ead9b9;box-shadow:0 5px 14px #0005,inset 0 1px 0 #ffffff12}
+.action:hover{background:linear-gradient(180deg,#443323,#241a13);border-color:#e0bd82;color:#fff0d0;transform:translateY(-1px)}
+.action.primary{background:linear-gradient(135deg,#e0c18a,#b88e55 54%,#987044);border-color:#e0c18a;color:#21170e;box-shadow:0 5px 16px #0006,inset 0 1px 0 #fff8,inset 0 -2px 0 #76532f55}
+.action.primary:hover{background:linear-gradient(135deg,#f0d9a8,#c49a5f 54%,#a17a49);color:#1d140c}
+.iconbtn{background:linear-gradient(145deg,#2a211b,#14110f);border-color:#92734b;color:#ddc18c;box-shadow:0 4px 12px #0006,inset 0 1px 0 #fff2}
+.iconbtn:hover{background:#3a2a1c;border-color:#e0bd82;color:#fff0d0}
+button:focus-visible{outline:2px solid #e6c58d;outline-offset:3px}
+.footer{font-family:var(--engraved);font-size:8px;letter-spacing:.23em;color:#b49b75;text-shadow:0 2px 8px #000}
+.hintline{color:#c0b196;text-shadow:0 2px 8px #000}
+.modal{border:1px solid #b48c57;background:linear-gradient(145deg,#32221c,#171116);box-shadow:0 28px 90px #000c,inset 0 1px 0 #fff2}
+.modal h2{font-family:var(--display);letter-spacing:.02em;color:#f0d8aa}
+.modal p{color:#c7b99f}
+.toast{background:linear-gradient(135deg,#f0dbb5,#c19a62);color:#24190f;box-shadow:0 8px 24px #0008}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){
+  body{background-attachment:scroll,scroll,scroll;background-position:center,center,center}
+  body:after{inset:6px}
+  .wrap{padding-left:14px;padding-right:14px}
+  .heading{margin:25px 0 14px}
+  .stage{width:100%;min-height:350px;height:54vh}
+  .book{width:min(78vw,360px);height:min(50vh,430px);min-height:330px}
+  .candle{right:-2%;bottom:4%;transform:scale(.72)}
+  .actions{gap:8px;margin-top:18px}
+  .action{padding:11px 14px;font-size:9px}
+}
+@media(max-width:390px){
+  .book{width:76vw;min-height:320px}
+  .page{padding:38px 27px}
+  .answer{font-size:clamp(24px,7vw,32px)}
+  .page .note{font-size:14px}
+  .secret-wrap{font-size:12px;min-height:78px}
+  .candle{right:-4%;transform:scale(.62)}
+}
+@media(prefers-reduced-motion:reduce){.flame,.glow,.candle:after{animation:none!important}}
+
 </style></head>
 <body><main class="wrap"><header class="top"><div class="brand">Bir an · Bir soru · Bir cevap</div><button class="iconbtn" id="info" aria-label="Bilgi">i</button></header><section class="heading"><h1>Cevaplar Kitabı</h1><p>Aradığın şey, belki de bir sayfada saklı.</p></section>
-<div class="stage"><div class="candle" id="candle"><div class="glow"></div><div class="flame"><i></i></div><div class="wick"></div><div class="wax"><span class="drip"></span><span class="drip d2"></span></div><div class="candle-base"></div></div><div class="book" id="book"><div class="cover" id="cover" role="button" tabindex="0" aria-label="Kitabı açmak için iki kez dokun"><span class="orn tl">✧</span><span class="orn br">✧</span><div class="cover-content"><div class="symbol">✦</div><div class="cover-title">CEVAPLAR<br>KİTABI</div><div class="cover-sub">The Book of Answers</div><div class="cover-hint">Kapağa iki kez dokun</div></div></div><div class="page" id="page"><div class="mini">Kitabın cevabı</div><div class="answer" id="answer">...</div><div class="answer-mark" id="answer-mark"><svg viewBox="0 0 140 60" width="140" aria-hidden="true"><path d="M70 5 L78 24 L98 30 L78 36 L70 55 L62 36 L42 30 L62 24Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="70" cy="30" r="22" fill="none" stroke="currentColor" stroke-dasharray="2 4"/><path d="M18 30h18M104 30h18M70 0v8M70 52v8" stroke="currentColor"/></svg></div><div class="note" id="note"></div><div class="page-art" id="page-art" aria-hidden="true"></div><div class="secret-wrap locked" id="secret-wrap"><div class="secret-text" id="secret-text">Bu yolun ardında, ilk cevabın tamamlayıcısı olan ikinci bir düşünce saklı: kendine izin verdiğin ölçüde kapılar açılır; acele etmeden, kendi seçiminle.</div><div class="marker" aria-hidden="true"></div><button class="plus-btn" id="plus-btn">✦ Gizli satırı aç · Plus</button><div class="plus-note" id="plus-note">Bu prototipte kilit açma bir önizlemedir; gerçek üyelik / ödeme bağlantısı değildir.</div></div><div class="pageno" id="pageno">— 001 —</div></div></div></div>
+<div class="stage"><div class="candle" id="candle"><div class="glow"></div><div class="flame"><i></i></div><div class="wick"></div><div class="wax"><span class="drip"></span><span class="drip d2"></span></div><div class="candle-base"><span class="holder-neck"></span><span class="holder-foot"></span><span class="holder-rim"></span></div></div><div class="book" id="book"><div class="cover" id="cover" role="button" tabindex="0" aria-label="Kitabı açmak için iki kez dokun"><span class="orn tl">✧</span><span class="orn br">✧</span><div class="cover-content"><div class="symbol">✦</div><div class="cover-title">CEVAPLAR<br>KİTABI</div><div class="cover-sub">THE BOOK OF ANSWERS</div><div class="cover-hint">Kapağa iki kez dokun</div></div></div><div class="page" id="page"><div class="mini">Kitabın cevabı</div><div class="answer" id="answer">...</div><div class="answer-mark" id="answer-mark"><svg viewBox="0 0 140 60" width="140" aria-hidden="true"><path d="M70 5 L78 24 L98 30 L78 36 L70 55 L62 36 L42 30 L62 24Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="70" cy="30" r="22" fill="none" stroke="currentColor" stroke-dasharray="2 4"/><path d="M18 30h18M104 30h18M70 0v8M70 52v8" stroke="currentColor"/></svg></div><div class="note" id="note"></div><div class="page-art" id="page-art" aria-hidden="true"></div><div class="secret-wrap locked" id="secret-wrap"><div class="secret-text" id="secret-text">Bu yolun ardında, ilk cevabın tamamlayıcısı olan ikinci bir düşünce saklı: kendine izin verdiğin ölçüde kapılar açılır; acele etmeden, kendi seçiminle.</div><button class="plus-btn premium-pencil" id="plus-btn" type="button" aria-label="Premium satır önizlemesini aç" title="Premium satır önizlemesini aç"><span class="pencil-tip" aria-hidden="true"></span><span class="pencil-body" aria-hidden="true"></span><span class="pencil-ferrule" aria-hidden="true"></span><span class="pencil-eraser" aria-hidden="true"></span><span class="sr-only">Premium satır önizlemesini aç</span></button><div class="plus-note" id="plus-note">Gri kaleme dokun · Premium satır önizlemesi</div></div><div class="pageno" id="pageno">— 001 —</div></div></div></div>
 <div class="hintline" id="hint">Bir soru düşün. Yazmana, anlatmana gerek yok.<br>Hazır olduğunda kapağa iki kez dokun.</div><div class="actions" id="actions" style="display:none"><button class="action primary" id="again">Yeni bir cevap</button><button class="action" id="close">Kitabı kapat</button><button class="action" id="share">Cevabı paylaş</button></div><footer class="footer">HER CEVAP, YENİ BİR İHTİMAL.</footer></main>
 <div class="overlay" id="overlay"><div class="modal"><h2>Bu kitap nasıl çalışır?</h2><p>Zihninde bir soru tut. Cevabını ararken kapağa iki kez hızlıca dokun. Kitap, içinden rastgele bir cümle seçerek sana bir cevap sunacak.</p><p>Bu, eğlence ve düşünme amacıyla hazırlanmış küçük bir ritüel. Cevapları kesin gerçekler ya da hayat kararları için rehber olarak görme.</p><button class="action primary" id="ok">Anladım</button></div></div><div class="toast" id="toast">Kopyalandı</div>
 <script>
@@ -150,8 +301,8 @@ function makeAnswerArt(i){
  return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cevap ${i+1} için özel minyatür illüstrasyon"><defs><radialGradient id="warm" cx="50%" cy="55%"><stop offset="0" stop-color="#e4c48b" stop-opacity=".42"/><stop offset="1" stop-color="#e4c48b" stop-opacity="0"/></radialGradient><radialGradient id="warm${i}" cx="50%" cy="55%"><stop offset="0" stop-color="#e4c48b" stop-opacity=".42"/><stop offset="1" stop-color="#e4c48b" stop-opacity="0"/></radialGradient><linearGradient id="ink${i}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="currentColor" stop-opacity=".06"/><stop offset="1" stop-color="currentColor" stop-opacity=".18"/></linearGradient></defs><circle cx="80" cy="80" r="73" fill="url(#warm${i})"/><g stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".4">${starsAndFrame}${backdrop}</g><g stroke="currentColor" stroke-width="2" fill="url(#ink${i})" stroke-linecap="round" stroke-linejoin="round" opacity=".85">${motif}</g><g stroke="currentColor" stroke-width="1" fill="none" opacity=".35"><path d="M${22+rand(1)*20} 32q8-10 16 0t16 0"/><path d="M${105+rand(2)*20} 118q8-10 16 0t16 0"/><path d="M20 150H140" stroke-dasharray="2 4"/></g></svg>`;
 }
 
-let currentArtIndex=0;function setPageArt(){document.getElementById('page-art').innerHTML=makeAnswerArt(currentArtIndex);secretWrap.classList.remove('unlocked');secretWrap.classList.add('locked');secretText.textContent=secretLines[Math.floor(Math.random()*secretLines.length)];plusBtn.textContent='✦ Gizli satırı aç · Plus';plusNote.textContent='Bu prototipte kilit açma bir önizlemedir; gerçek üyelik / ödeme bağlantısı değildir.'}
-plusBtn.addEventListener('click',e=>{e.stopPropagation();sound('page');secretWrap.classList.toggle('unlocked');secretWrap.classList.toggle('locked');if(secretWrap.classList.contains('unlocked')){plusBtn.textContent='✧ Gizli satır açıldı';plusNote.textContent='Plus deneyimi önizlemesi';}else{plusBtn.textContent='✦ Gizli satırı aç · Plus';plusNote.textContent='Bu prototipte kilit açma bir önizlemedir; gerçek üyelik / ödeme bağlantısı değildir.'}});
+let currentArtIndex=0;function setPageArt(){document.getElementById('page-art').innerHTML=makeAnswerArt(currentArtIndex);secretWrap.classList.remove('unlocked');secretWrap.classList.add('locked');secretText.textContent=secretLines[Math.floor(Math.random()*secretLines.length)];plusBtn.setAttribute('aria-label','Premium satır önizlemesini aç');plusNote.textContent='Gri kaleme dokun · Premium satır önizlemesi'}
+plusBtn.addEventListener('click',e=>{e.stopPropagation();sound('page');plusBtn.animate?.([{transform:'translate(-50%,-50%) rotate(-3.5deg) scale(1)'},{transform:'translate(-50%,-50%) rotate(2deg) scale(.9)'},{transform:'translate(-50%,-50%) rotate(-3deg) scale(1)'}],{duration:260,easing:'ease-out'});secretWrap.classList.toggle('unlocked');secretWrap.classList.toggle('locked');if(secretWrap.classList.contains('unlocked')){plusBtn.setAttribute('aria-label','Premium satırı kapat');plusNote.textContent='Premium satır önizlemesi açık';}else{plusBtn.setAttribute('aria-label','Premium satır önizlemesini aç');plusNote.textContent='Gri kaleme dokun · Premium satır önizlemesi'}});
 
 function openBook(){if(opened)return;document.getElementById('candle').classList.remove('extinguished');opened=true;answered=true;book.classList.remove('airborne','closeflight');void book.offsetWidth;book.classList.add('airborne');sound('open');let answerIndex=Math.floor(Math.random()*answers.length);currentArtIndex=answerIndex;let item=answers[answerIndex];lastAnswer=item[0]+'\n'+item[1];document.getElementById('answer').textContent=item[0];document.getElementById('note').textContent=item[1];document.getElementById('pageno').textContent='— '+String(Math.floor(Math.random()*899)+101)+' —';setPageArt();cover.style.opacity='0';cover.style.transform='rotateY(-105deg)';cover.style.pointerEvents='none';setTimeout(()=>{page.classList.add('show');sound('page');},650);setTimeout(()=>book.classList.remove('airborne'),2600);hint.textContent='Cevabı bir an düşün. Belki de aradığın, bu cümlede değil sende saklı.';actions.style.display='flex';}
 function doubleTap(){const now=Date.now();if(now-lastTap<360){openBook();lastTap=0}else lastTap=now}cover.addEventListener('click',()=>{sound('tap');doubleTap();});cover.addEventListener('dblclick',e=>{e.preventDefault();openBook();});cover.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();doubleTap()}});
