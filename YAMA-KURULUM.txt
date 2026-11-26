@@ -1,0 +1,15 @@
+CEVAPLAR KITABI — HALI GÖRSELİ DÜZELTME YAMASI
+
+Bu yama, bir önceki düzeltmenin üzerine uygulanır.
+
+ZIP içindeki dosyaları proje kök dizinine aynı klasör yapısıyla kopyalayın:
+- index.html dosyasını mevcut index.html üzerine yazın.
+- assets/turk-hali.webp dosyasını assets klasörüne koyun. assets klasörü yoksa oluşturun.
+
+ÖNEMLİ: Yalnızca index.html dosyasını kopyalamayın; halı görseli de assets/turk-hali.webp konumunda bulunmalıdır.
+
+Bu sürümde:
+- Tekrarlanan basit SVG deseni kaldırıldı.
+- Referans fotoğraftaki gibi krem/ivory gövdeli, bordo-kahverengi çiçekli bordürlere ve dokuma yüzeye sahip tek parça halı görseli kullanıldı.
+- Halı, sayfayı kaplayacak şekilde arka plana serildi; kitap ve mum üst katmanda kalır.
+- Önceki yamadaki kitap, yazı temizliği, mum/şamdan ve gri kalem etkileşimleri korundu.
